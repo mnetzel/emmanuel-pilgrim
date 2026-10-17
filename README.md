@@ -35,12 +35,10 @@ requires a backend and is intentionally absent from this static archive.
 External social links still lead to their original services.
 
 The experimental AI photo edits in the top-level `assets/` folder are excluded
-from the published site. The website uses the original photographs exclusively.
+from the published site. The welcome header uses the selected enhanced lake photograph; the blog header uses Emmanuel’s own forest photograph.
 
-## Alternative visual edition (V2)
+## Appearance
 
-`docs/v2/` is a separate warm, book-inspired visual edition at
-https://mnetzel.github.io/emmanuel-pilgrim/v2/. It shares the original assets
-and JavaScript; the original edition is unchanged. Edit `docs/v2/theme.css`
-to change its appearance. After editing original page content, run
-`python scripts/build-v2.py` to synchronize V2, then `python scripts/check.py`.
+The warm, book-inspired theme is now the only published edition, at the main
+site address. Edit `docs/theme.css` to adjust its appearance. There is no
+separate V2 directory or version switch.

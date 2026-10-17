@@ -10,7 +10,6 @@ a:hover { color: #8b6335; }
 .cento-header .logo { margin-bottom: 25px; }
 .cento-header .logo #wsite-title { max-width: none; }
 .cento-header #wsite-title { font-family: 'Cardo', Georgia, serif !important; font-size: 34px !important; font-weight: 400; letter-spacing: .015em !important; color: #33452f; }
-.cento-header .logo::before { content: ''; display: block; width: 1px; height: 26px; background: var(--ochre); margin: 0 auto 22px; }
 .nav ul li a { color: #626958; font-size: 12px; letter-spacing: .16em; padding: 8px 19px 13px; }
 .nav ul li#active > a.wsite-menu-item { color: #30482d; box-shadow: inset 0 -1px var(--ochre); }
 .nav ul li > a.wsite-menu-item:hover { color: #30482d; }
@@ -41,13 +40,10 @@ body .blog-sidebar h2 { font-size: 22px !important; margin-bottom: 20px; }
 .wsite-image img { border-radius: 2px; }
 blockquote { color: #59684f; border-left: 2px solid #a7ad92; padding-left: 26px; }
 .footer-wrap { border-top: 1px solid var(--line); }
-.edition-link { position: absolute; right: 24px; top: 18px; z-index: 10; font: 11px/1.4 'Quattrocento Sans', sans-serif; color: #727761; letter-spacing: .04em; }
 a:focus-visible, button:focus-visible { outline: 2px solid var(--ochre); outline-offset: 5px; }
 @media (max-width: 767px) {
   .cento-header { padding-top: 0; }
-  .cento-header .logo::before { display: none; }
   .cento-header #wsite-title { font-size: 22px !important; letter-spacing: 0 !important; }
-  .edition-link { position: static; display: block; text-align: center; padding: 22px; }
   .banner-wrap { width: calc(100% - 28px); margin-top: 64px; }
   .wsite-header-section { height: 360px !important; }
   .content-wrap .container { padding: 40px 26px; }
