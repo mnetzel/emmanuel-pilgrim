@@ -1,0 +1,120 @@
+{
+  "tiles": {
+    "url": "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+    "attribution": "© OpenStreetMap contributors",
+    "attribution_url": "https://www.openstreetmap.org/copyright",
+    "max_zoom": 19
+  },
+  "route_file": "route.geojson",
+  "locations_file": "locations.geojson",
+  "places": [
+    {
+      "id": "fulda",
+      "name": "Fulda",
+      "country": "Germany",
+      "post": "fulda",
+      "coordinates": [
+        9.6775,
+        50.552777777778
+      ],
+      "coordinate_source": "https://www.wikidata.org/wiki/Q3963",
+      "location_precision": "town"
+    },
+    {
+      "id": "wroclaw",
+      "name": "Wrocław",
+      "country": "Poland",
+      "post": "winter-in-poland",
+      "coordinates": [
+        17.0325,
+        51.11
+      ],
+      "coordinate_source": "https://www.wikidata.org/wiki/Q1799",
+      "location_precision": "town"
+    },
+    {
+      "id": "vilnius",
+      "name": "Vilnius",
+      "country": "Lithuania",
+      "post": "vilnius",
+      "coordinates": [
+        25.28,
+        54.687222222222225
+      ],
+      "coordinate_source": "https://www.wikidata.org/wiki/Q216",
+      "location_precision": "town"
+    },
+    {
+      "id": "aglona",
+      "name": "Aglona",
+      "country": "Latvia",
+      "post": "aglona",
+      "coordinates": [
+        27.016666666667,
+        56.123333333333
+      ],
+      "coordinate_source": "https://www.wikidata.org/wiki/Q372999",
+      "location_precision": "town"
+    },
+    {
+      "id": "gietrzwald",
+      "name": "Gietrzwałd",
+      "country": "Poland",
+      "post": "gietrzwald",
+      "coordinates": [
+        20.235555555556,
+        53.7475
+      ],
+      "coordinate_source": "https://www.wikidata.org/wiki/Q994681",
+      "location_precision": "town"
+    },
+    {
+      "id": "levoca",
+      "name": "Levoča",
+      "country": "Slovakia",
+      "post": "levoca",
+      "coordinates": [
+        20.590555555556,
+        49.022777777778
+      ],
+      "coordinate_source": "https://www.wikidata.org/wiki/Q242478",
+      "location_precision": "town"
+    },
+    {
+      "id": "timisoara",
+      "name": "Timișoara",
+      "country": "Romania",
+      "post": "the-bird-and-the-journey-to-serbia",
+      "coordinates": [
+        21.23,
+        45.759722222222
+      ],
+      "coordinate_source": "https://www.wikidata.org/wiki/Q83404",
+      "location_precision": "town"
+    },
+    {
+      "id": "sarajevo",
+      "name": "Sarajevo",
+      "country": "Bosnia & Herzegovina",
+      "post": "a-winter-odyssey-in-the-balkans",
+      "coordinates": [
+        18.413055555555555,
+        43.85638888888889
+      ],
+      "coordinate_source": "https://www.wikidata.org/wiki/Q11194",
+      "location_precision": "town"
+    },
+    {
+      "id": "mostar",
+      "name": "Mostar",
+      "country": "Bosnia & Herzegovina",
+      "post": "a-winter-odyssey-in-the-balkans",
+      "coordinates": [
+        17.8075,
+        43.34361111111111
+      ],
+      "coordinate_source": "https://www.wikidata.org/wiki/Q93347",
+      "location_precision": "town"
+    }
+  ]
+}

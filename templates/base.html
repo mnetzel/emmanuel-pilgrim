@@ -15,6 +15,12 @@
   {% if route.kind == 'post' %}<meta property="article:published_time" content="{{ post.date }}">{% endif %}
   <link rel="stylesheet" href="{{ url('assets/css/site.css') }}">
   <script src="{{ url('assets/js/site.js') }}" defer></script>
+  {% if route.section == 'journey-map' %}
+  <link rel="stylesheet" href="{{ url('assets/vendor/leaflet/leaflet.css') }}">
+  <link rel="stylesheet" href="{{ url('assets/css/journey-map.css') }}">
+  <script src="{{ url('assets/vendor/leaflet/leaflet.js') }}" defer></script>
+  <script src="{{ url('assets/js/journey-map.js') }}" defer></script>
+  {% endif %}
 </head>
 <body class="page-{{ route.section }}">
   <a class="skip-link" href="#main-content">Skip to content</a>

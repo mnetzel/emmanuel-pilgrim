@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block content %}
+  <header class="journey-heading">
+    <p class="journey-eyebrow">One step at a time</p>
+    <h1>Journey Map</h1>
+    <div class="prose">{{ body|render_content }}</div>
+  </header>
+  <section class="journey-explorer" id="journey-explorer" aria-label="Explore the journey" data-config-url="{{ url('assets/data/journey/config.json') }}" data-site-root="{{ url('index.html') }}">
+    <div class="journey-toolbar">
+      <p>Paris region <span aria-hidden="true">→</span> Bosnia &amp; Herzegovina</p>
+      <div class="journey-actions">
+        <button type="button" id="journey-fit" disabled>Show full route</button>
+        <button type="button" id="journey-fullscreen" hidden>Full screen</button>
+      </div>
+    </div>
+    <div class="journey-grid">
+      <div class="journey-map-column">
+        <div id="journey-map" class="journey-map" role="region" aria-label="Interactive journey map. Use arrow keys to move and plus or minus to zoom."></div>
+        <p class="journey-status" id="journey-status" role="status">Loading the journey…</p>
+        <p class="journey-help">Drag to explore. Use + and − to zoom, or pinch on your phone.</p>
+        <fieldset class="journey-layers" id="journey-layers" disabled>
+          <legend>On the map</legend>
+          <label><input type="checkbox" id="journey-main" checked> <span class="map-key map-key-route" aria-hidden="true"></span> Recorded route</label>
+          <label><input type="checkbox" id="journey-stories" checked> <span class="map-key map-key-story" aria-hidden="true"></span> Journal places</label>
+          <label><input type="checkbox" id="journey-additional"> Additional route sketches</label>
+          <label><input type="checkbox" id="journey-locations"> Original map points</label>
+        </fieldset>
+      </div>
+      <aside class="journey-sidebar" aria-labelledby="journey-places-title">
+        <div class="journey-sidebar-heading">
+          <h2 id="journey-places-title">Places &amp; stories</h2>
+          <label class="journey-filter-label" for="journey-year">Filter by year</label>
+          <select id="journey-year" disabled><option value="all">All years</option></select>
+        </div>
+        <ol class="journey-story-list" id="journey-story-list">
+          {% for place in journey.places %}
+          <li class="journey-story" data-place-id="{{ place.id }}" data-year="{{ place.date[:4] }}">
+            <div class="journey-story-heading"><button type="button" class="journey-locate" data-place-id="{{ place.id }}" disabled aria-label="Show {{ place.name }} on the map">{{ loop.index }}</button><h3>{{ place.name }}<span>{{ place.country }}</span></h3></div>
+            <a class="journey-story-link" href="{{ url(place.post_path) }}">{{ place.post_title }}</a>
+            <p class="journey-story-date">Published <time datetime="{{ place.date }}">{{ place.date_label }}</time></p>
+          </li>
+          {% endfor %}
+        </ol>
+        <p class="journey-empty" id="journey-empty" hidden>No journal places for this year.</p>
+      </aside>
+    </div>
+  </section>
+  <div class="journey-notes prose">
+    <p>Journal markers show the approximate location of a town or place mentioned in a post, rather than an exact campsite or meeting spot. The date belongs to the published entry.</p>
+    <p>The recorded map ends in Bosnia and Herzegovina; the journal continues beyond it.</p>
+    <p><a href="{{ url('assets/data/journey/route.geojson') }}" download>Download the route (GeoJSON)</a> <span aria-hidden="true">·</span> <a href="{{ url('assets/data/journey/source.kml') }}" download>Original map data (KML)</a></p>
+    <noscript><p>The interactive map needs JavaScript. You can still read every linked story above and download the route.</p></noscript>
+  </div>
+{% endblock %}

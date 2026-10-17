@@ -44,6 +44,13 @@ def build():
         post = read_json(meta)
         post['body'] = meta.with_name('body.html').read_text(encoding='utf-8')
         posts[post['slug']] = post
+    journey = read_json(CONTENT / 'journey/map.json')
+    journey['places'] = [dict(place) for place in journey['places']]
+    for place in journey['places']:
+        post = posts[place['post']]
+        place.update({'post_path': post['path'], 'post_title': post['title'], 'date': post['date'], 'date_label': post['date_label']})
+        match = re.search(r'<img[^>]+src="([^"]+)"', post['body'])
+        place['image'] = match[1] if match else None
     ordered = sorted(posts.values(), key=lambda p: (p['date'], p['slug']), reverse=True)
     months = defaultdict(list)
     for post in ordered:
@@ -87,10 +94,15 @@ def build():
     if OUTPUT.exists(): shutil.rmtree(OUTPUT)
     OUTPUT.mkdir()
     shutil.copytree(ROOT / 'static', OUTPUT / 'assets')
+    journey_output = OUTPUT / 'assets/data/journey'
+    journey_output.mkdir(parents=True, exist_ok=True)
+    for name in ['route.geojson', 'locations.geojson', 'source.kml']:
+        shutil.copyfile(CONTENT / 'journey' / name, journey_output / name)
+    (journey_output / 'config.json').write_text(json.dumps(journey, ensure_ascii=False, separators=(',', ':')) + '\n', encoding='utf-8')
     for route in routes:
         post = posts.get(route.get('post'))
         body = (CONTENT / 'pages' / (route['content'] + '.html')).read_text(encoding='utf-8') if route['kind'] == 'page' else None
-        context = {'site': site, 'route': route, 'posts': posts,
+        context = {'site': site, 'route': route, 'posts': posts, 'journey': journey,
                    'post': post, 'body': body,
                    'route_posts': [posts[x] for x in route.get('posts', [])],
                    'url': partial(relative_url, current=route['path']),
@@ -98,7 +110,7 @@ def build():
                    'canonical': urljoin(site['url'], route['path'].removesuffix('index.html')),
                    'active_navigation': 'blog.html' if route['section'] == 'blog' else route['path'],
                    'page_title': post['title'] if post else route.get('heading', site['name'])}
-        name = {'page': 'page.html', 'post': 'post-page.html', 'listing': 'listing.html'}[route['kind']]
+        name = route.get('template') or {'page': 'page.html', 'post': 'post-page.html', 'listing': 'listing.html'}[route['kind']]
         path = OUTPUT / route['path']
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(env.get_template(name).render(**context), encoding='utf-8', newline='\n')

@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Journey Map — Emmanuel, French Pilgrim</title>
+  <meta name="description" content="Explore Emmanuel’s walking pilgrimage from the Paris region to Bosnia and Herzegovina, with places and stories from his journal.">
+  <link rel="canonical" href="https://mnetzel.github.io/emmanuel-pilgrim/journey-map.html">
+  <meta property="og:site_name" content="Emmanuel, French Pilgrim">
+  <meta property="og:title" content="Journey Map">
+  <meta property="og:description" content="Explore Emmanuel’s walking pilgrimage from the Paris region to Bosnia and Herzegovina, with places and stories from his journal.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mnetzel.github.io/emmanuel-pilgrim/journey-map.html">
+  <link rel="stylesheet" href="assets/css/site.css">
+  <script src="assets/js/site.js" defer></script>
+  <link rel="stylesheet" href="assets/vendor/leaflet/leaflet.css">
+  <link rel="stylesheet" href="assets/css/journey-map.css">
+  <script src="assets/vendor/leaflet/leaflet.js" defer></script>
+  <script src="assets/js/journey-map.js" defer></script>
+</head>
+<body class="page-journey-map">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+<header class="site-header">
+  <a class="site-brand" href="index.html">Emmanuel, French Pilgrim</a>
+  <button class="menu-toggle" type="button" aria-controls="primary-navigation" aria-expanded="false" aria-label="Open navigation">
+    <span class="menu-toggle-icon" aria-hidden="true"></span>
+  </button>
+  <nav id="primary-navigation" class="primary-navigation" aria-label="Main navigation">
+    <ul>
+      <li><a href="index.html">Welcome</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="journey-map.html" aria-current="page">Journey Map</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+    </ul>
+  </nav>
+</header>
+  <main id="main-content" class="page-layout" tabindex="-1">
+  <header class="journey-heading">
+    <p class="journey-eyebrow">One step at a time</p>
+    <h1>Journey Map</h1>
+    <div class="prose"><p>Follow the path, meet the places, and read the stories along the way.</p>
+</div>
+  </header>
+  <section class="journey-explorer" id="journey-explorer" aria-label="Explore the journey" data-config-url="assets/data/journey/config.json" data-site-root="index.html">
+    <div class="journey-toolbar">
+      <p>Paris region <span aria-hidden="true">→</span> Bosnia &amp; Herzegovina</p>
+      <div class="journey-actions">
+        <button type="button" id="journey-fit" disabled>Show full route</button>
+        <button type="button" id="journey-fullscreen" hidden>Full screen</button>
+      </div>
+    </div>
+    <div class="journey-grid">
+      <div class="journey-map-column">
+        <div id="journey-map" class="journey-map" role="region" aria-label="Interactive journey map. Use arrow keys to move and plus or minus to zoom."></div>
+        <p class="journey-status" id="journey-status" role="status">Loading the journey…</p>
+        <p class="journey-help">Drag to explore. Use + and − to zoom, or pinch on your phone.</p>
+        <fieldset class="journey-layers" id="journey-layers" disabled>
+          <legend>On the map</legend>
+          <label><input type="checkbox" id="journey-main" checked> <span class="map-key map-key-route" aria-hidden="true"></span> Recorded route</label>
+          <label><input type="checkbox" id="journey-stories" checked> <span class="map-key map-key-story" aria-hidden="true"></span> Journal places</label>
+          <label><input type="checkbox" id="journey-additional"> Additional route sketches</label>
+          <label><input type="checkbox" id="journey-locations"> Original map points</label>
+        </fieldset>
+      </div>
+      <aside class="journey-sidebar" aria-labelledby="journey-places-title">
+        <div class="journey-sidebar-heading">
+          <h2 id="journey-places-title">Places &amp; stories</h2>
+          <label class="journey-filter-label" for="journey-year">Filter by year</label>
+          <select id="journey-year" disabled><option value="all">All years</option></select>
+        </div>
+        <ol class="journey-story-list" id="journey-story-list">
+          <li class="journey-story" data-place-id="fulda" data-year="2020">
+            <div class="journey-story-heading"><button type="button" class="journey-locate" data-place-id="fulda" disabled aria-label="Show Fulda on the map">1</button><h3>Fulda<span>Germany</span></h3></div>
+            <a class="journey-story-link" href="blog/fulda/index.html">Fulda</a>
+            <p class="journey-story-date">Published <time datetime="2020-12-06">6/12/2020</time></p>
+          </li>
+          <li class="journey-story" data-place-id="wroclaw" data-year="2021">
+            <div class="journey-story-heading"><button type="button" class="journey-locate" data-place-id="wroclaw" disabled aria-label="Show Wrocław on the map">2</button><h3>Wrocław<span>Poland</span></h3></div>
+            <a class="journey-story-link" href="blog/winter-in-poland/index.html">Winter in Poland (Czestochowa, Warsaw)</a>
+            <p class="journey-story-date">Published <time datetime="2021-02-19">19/2/2021</time></p>
+          </li>
+          <li class="journey-story" data-place-id="vilnius" data-year="2021">
+            <div class="journey-story-heading"><button type="button" class="journey-locate" data-place-id="vilnius" disabled aria-label="Show Vilnius on the map">3</button><h3>Vilnius<span>Lithuania</span></h3></div>
+            <a class="journey-story-link" href="blog/vilnius/index.html">Vilnius</a>
+            <p class="journey-story-date">Published <time datetime="2021-07-06">6/7/2021</time></p>
+          </li>
+          <li class="journey-story" data-place-id="aglona" data-year="2021">
+            <div class="journey-story-heading"><button type="button" class="journey-locate" data-place-id="aglona" disabled aria-label="Show Aglona on the map">4</button><h3>Aglona<span>Latvia</span></h3></div>
+            <a class="journey-story-link" href="blog/aglona/index.html">Aglona</a>
+            <p class="journey-story-date">Published <time datetime="2021-08-17">17/8/2021</time></p>
+          </li>
+          <li class="journey-story" data-place-id="gietrzwald" data-year="2022">
+            <div class="journey-story-heading"><button type="button" class="journey-locate" data-place-id="gietrzwald" disabled aria-label="Show Gietrzwałd on the map">5</button><h3>Gietrzwałd<span>Poland</span></h3></div>
+            <a class="journey-story-link" href="blog/gietrzwald/index.html">Gietrzwald and Olsztyn</a>
+            <p class="journey-story-date">Published <time datetime="2022-01-02">2/1/2022</time></p>
+          </li>
+          <li class="journey-story" data-place-id="levoca" data-year="2022">
+            <div class="journey-story-heading"><button type="button" class="journey-locate" data-place-id="levoca" disabled aria-label="Show Levoča on the map">6</button><h3>Levoča<span>Slovakia</span></h3></div>
+            <a class="journey-story-link" href="blog/levoca/index.html">Levoca</a>
+            <p class="journey-story-date">Published <time datetime="2022-12-01">1/12/2022</time></p>
+          </li>
+          <li class="journey-story" data-place-id="timisoara" data-year="2024">
+            <div class="journey-story-heading"><button type="button" class="journey-locate" data-place-id="timisoara" disabled aria-label="Show Timișoara on the map">7</button><h3>Timișoara<span>Romania</span></h3></div>
+            <a class="journey-story-link" href="blog/the-bird-and-the-journey-to-serbia/index.html">The Bird and the Journey to Serbia</a>
+            <p class="journey-story-date">Published <time datetime="2024-09-01">1/9/2024</time></p>
+          </li>
+          <li class="journey-story" data-place-id="sarajevo" data-year="2025">
+            <div class="journey-story-heading"><button type="button" class="journey-locate" data-place-id="sarajevo" disabled aria-label="Show Sarajevo on the map">8</button><h3>Sarajevo<span>Bosnia &amp; Herzegovina</span></h3></div>
+            <a class="journey-story-link" href="blog/a-winter-odyssey-in-the-balkans/index.html">Crossing the Balkans</a>
+            <p class="journey-story-date">Published <time datetime="2025-01-11">11/1/2025</time></p>
+          </li>
+          <li class="journey-story" data-place-id="mostar" data-year="2025">
+            <div class="journey-story-heading"><button type="button" class="journey-locate" data-place-id="mostar" disabled aria-label="Show Mostar on the map">9</button><h3>Mostar<span>Bosnia &amp; Herzegovina</span></h3></div>
+            <a class="journey-story-link" href="blog/a-winter-odyssey-in-the-balkans/index.html">Crossing the Balkans</a>
+            <p class="journey-story-date">Published <time datetime="2025-01-11">11/1/2025</time></p>
+          </li>
+        </ol>
+        <p class="journey-empty" id="journey-empty" hidden>No journal places for this year.</p>
+      </aside>
+    </div>
+  </section>
+  <div class="journey-notes prose">
+    <p>Journal markers show the approximate location of a town or place mentioned in a post, rather than an exact campsite or meeting spot. The date belongs to the published entry.</p>
+    <p>The recorded map ends in Bosnia and Herzegovina; the journal continues beyond it.</p>
+    <p><a href="assets/data/journey/route.geojson" download>Download the route (GeoJSON)</a> <span aria-hidden="true">·</span> <a href="assets/data/journey/source.kml" download>Original map data (KML)</a></p>
+    <noscript><p>The interactive map needs JavaScript. You can still read every linked story above and download the route.</p></noscript>
+  </div>
+  </main>
+<footer class="site-footer">
+  <span class="visually-hidden">Emmanuel, French Pilgrim</span>
+</footer>
+<dialog class="photo-viewer" aria-label="Enlarged photograph">
+  <button class="photo-viewer-close" type="button" aria-label="Close photograph">×</button>
+  <img class="photo-viewer-image" alt="">
+</dialog>
+</body>
+</html>

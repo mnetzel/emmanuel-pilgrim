@@ -100,3 +100,56 @@ aktualizacji odpowiedniego rekordu kontrolnego w `tests/fixtures/`.
 Pierwotny import Weebly i poprzednie wersje kodu pozostają dostępne w historii
 Git. Nie są używane do budowania ani działania obecnej strony. Lokalne foldery
 `assets/` i `output/` z próbami zdjęć i propozycjami logo pozostają poza stroną.
+
+## Journey Map
+
+`Journey Map` is a separate page (`journey-map.html`) in the main navigation.
+The map uses a local, licensed copy of Leaflet 1.9.4 in `static/vendor/leaflet/`.
+Only the OpenStreetMap background tiles are fetched from an external service;
+there is no Google Maps runtime, geocoding API, account, or API key.
+
+- `content/journey/source.kml`: archived original export of Emmanuel’s map.
+- `content/journey/source.json`: provenance, checksum and geometry inventory.
+- `content/journey/route.geojson`: all eight original polylines, unchanged.
+- `content/journey/locations.geojson`: all 2567 original points, including repeats.
+- `content/journey/map.json`: tile provider and editorial links to journal entries.
+- `templates/journey-map.html`: accessible page, story list and controls.
+- `static/css/journey-map.css`, `static/js/journey-map.js`: map-specific presentation and interactions.
+
+The default view shows the main recorded route and journal places. Supplementary
+sketches and original points are separate, optional layers. Point data is loaded
+only when requested, and exact duplicate coordinates are displayed once without
+changing the archived data. The source has no point timestamps; its point order
+must not be interpreted as a chronological GPS track. No route smoothing or
+new route calculation is performed by the importer.
+
+To add a journal marker, append a record to `content/journey/map.json`:
+
+```json
+{
+  "id": "a-unique-place-id",
+  "name": "Place name",
+  "country": "Country",
+  "post": "existing-post-folder-name",
+  "coordinates": [17.0325, 51.11],
+  "coordinate_source": "https://www.wikidata.org/wiki/Q1799",
+  "location_precision": "town"
+}
+```
+
+Coordinates are **longitude, latitude** (GeoJSON order). Use a verified location
+and keep its source. Town markers indicate the place discussed, not a precise
+campsite or encounter. Dates and titles come directly from the linked post;
+map dates are publication dates. The first photo accompanying that post is used
+in its popup. Rebuild and run the checks after editing.
+
+If the source map changes, replace `source.kml`, then run
+`python scripts/import_journey.py` followed by the normal build and checks.
+Keep the export date in `source.json` current. The importer runs manually and
+never downloads data during a website build.
+
+Tile URL and attribution are configurable in `map.json`. Standard OSM tiles
+must retain visible attribution, use normal browser caching and Referer headers,
+and must not be bulk downloaded, prefetched, or packaged for offline use.
+Policy: https://operations.osmfoundation.org/policies/tiles/.
+Town-coordinate sources are recorded per marker (Wikidata, CC0).

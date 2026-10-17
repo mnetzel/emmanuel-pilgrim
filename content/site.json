@@ -11,6 +11,10 @@
       "path": "blog.html"
     },
     {
+      "label": "Journey Map",
+      "path": "journey-map.html"
+    },
+    {
       "label": "About",
       "path": "about.html"
     },

@@ -3,6 +3,8 @@
 *.css text eol=lf
 *.js text eol=lf
 *.json text eol=lf
+*.geojson text eol=lf
+*.kml text eol=lf
 *.py text eol=lf
 *.md text eol=lf
 *.yml text eol=lf

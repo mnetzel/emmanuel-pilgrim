@@ -116,7 +116,9 @@ class SiteTests(unittest.TestCase):
                     self.assertTrue(img.get('alt'))
                     self.assertTrue(img.get('width') and img.get('height'))
                 for script in soup.find_all('script'):
-                    self.assertTrue(script.get('src', '').endswith('assets/js/site.js'))
+                    allowed = ['assets/js/site.js']
+                    if path == 'journey-map.html': allowed += ['assets/js/journey-map.js', 'assets/vendor/leaflet/leaflet.js']
+                    self.assertTrue(any(script.get('src', '').endswith(value) for value in allowed))
                 for link in soup.select('link[rel="stylesheet"]'):
                     self.assertFalse(urlsplit(link['href']).scheme)
 
@@ -136,8 +138,9 @@ class SiteTests(unittest.TestCase):
                         if parts.fragment and target.suffix == '.html':
                             dest = self.pages[target.relative_to(DOCS.resolve()).as_posix()]
                             self.assertIsNotNone(dest.find(id=unquote(parts.fragment)))
-        for file in (DOCS / 'assets/css').glob('*.css'):
+        for file in (DOCS / 'assets').rglob('*.css'):
             for value in re.findall(r'url\(["\']?([^\)"\'\s;]+)', file.read_text(encoding='utf-8')):
+                if value.startswith(('#', 'data:')): continue
                 self.assertTrue((file.parent / value).is_file(), value)
 
     def test_sitemap_and_contact(self):
@@ -146,6 +149,45 @@ class SiteTests(unittest.TestCase):
         self.assertEqual(len(locs), len(self.pages))
         self.assertTrue(all(x.startswith('https://mnetzel.github.io/emmanuel-pilgrim/') for x in locs))
         self.assertIsNotNone(self.pages['contact.html'].select_one('a[href="mailto:emmanuel.french.pilgrim@proton.me"]'))
+
+    def test_journey_navigation_and_static_fallback(self):
+        for path, soup in self.pages.items():
+            labels = [x.get_text(strip=True) for x in soup.select('.primary-navigation a')]
+            self.assertEqual(labels, ['Welcome', 'Blog', 'Journey Map', 'About', 'Contact', 'FAQ'])
+        page = self.pages['journey-map.html']
+        expected_places = json.loads((ROOT / 'content/journey/map.json').read_text(encoding='utf-8'))['places']
+        self.assertIsNotNone(page.select_one('#journey-map'))
+        self.assertEqual(len(page.select('.journey-story')), len(expected_places))
+        self.assertEqual(len(page.select('.journey-story-link')), len(expected_places))
+        self.assertIsNotNone(page.select_one('noscript'))
+        self.assertIsNotNone(page.select_one('.primary-navigation a[aria-current="page"][href="journey-map.html"]'))
+
+    def test_journey_geometry_matches_archived_export(self):
+        folder = ROOT / 'content/journey'
+        metadata = json.loads((folder / 'source.json').read_text(encoding='utf-8'))
+        self.assertEqual(file_hash(folder / 'source.kml'), metadata['source_sha256'])
+        root = ET.parse(folder / 'source.kml')
+        ns = {'k': 'http://www.opengis.net/kml/2.2'}
+        for kind, filename in [('LineString', 'route.geojson'), ('Point', 'locations.geojson')]:
+            expected = [[list(map(float, c.split(','))) for c in x.findtext('k:coordinates', namespaces=ns).split()] for x in root.findall('.//k:' + kind, ns)]
+            actual = json.loads((DOCS / 'assets/data/journey' / filename).read_text(encoding='utf-8'))['features']
+            self.assertEqual(len(actual), len(expected))
+            for feature, coordinates in zip(actual, expected):
+                self.assertEqual(feature['geometry']['coordinates'], coordinates[0] if kind == 'Point' else coordinates)
+        routes = json.loads((folder / 'route.geojson').read_text(encoding='utf-8'))['features']
+        self.assertEqual(sum(x['properties']['role'] == 'main' for x in routes), 1)
+
+    def test_journey_places_have_valid_posts_and_provenance(self):
+        data = json.loads((DOCS / 'assets/data/journey/config.json').read_text(encoding='utf-8'))
+        self.assertEqual(data['tiles']['url'], 'https://tile.openstreetmap.org/{z}/{x}/{y}.png')
+        self.assertIn('OpenStreetMap', data['tiles']['attribution'])
+        self.assertEqual(len({x['id'] for x in data['places']}), len(data['places']))
+        for place in data['places']:
+            self.assertIn(place['post_path'], self.pages)
+            self.assertTrue(place['coordinate_source'].startswith('https://www.wikidata.org/wiki/'))
+            self.assertEqual(place['location_precision'], 'town')
+            lon, lat = place['coordinates']
+            self.assertTrue(-180 <= lon <= 180 and -90 <= lat <= 90)
 
 
 if __name__ == '__main__': unittest.main()
