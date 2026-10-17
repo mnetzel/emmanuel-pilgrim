@@ -1,0 +1,7 @@
+{% if route.pagination %}
+<nav class="pagination" aria-label="Blog pages">
+  {% for item in route.pagination %}
+  <a class="pagination-{{ item.direction }}" href="{{ url(item.path) }}" rel="{{ 'next' if item.direction == 'older' else 'prev' }}">{{ '← ' if item.direction == 'older' else '' }}{{ item.label }}{{ ' →' if item.direction == 'newer' else '' }}</a>
+  {% endfor %}
+</nav>
+{% endif %}

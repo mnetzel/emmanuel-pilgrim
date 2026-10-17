@@ -1,0 +1,10 @@
+<aside class="blog-sidebar" aria-labelledby="archives-title">
+  <h2 id="archives-title">Archives</h2>
+  <nav class="archive-navigation" aria-label="Monthly archives">
+    <ul>
+      {% for archive in site.archives %}
+      <li><a href="{{ url(archive.path) }}"{% if archive.path == route.path %} aria-current="page"{% endif %}>{{ archive.label }}</a></li>
+      {% endfor %}
+    </ul>
+  </nav>
+</aside>

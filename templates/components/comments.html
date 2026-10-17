@@ -1,0 +1,18 @@
+<section class="post-comments" id="comments" aria-labelledby="comments-title">
+  <h2 id="comments-title"{% if not post.comments %} class="visually-hidden"{% endif %}>{{ post.comments|length }} {{ 'Comment' if post.comments|length == 1 else 'Comments' }}</h2>
+  {% if post.comments %}
+  <ol class="comment-list">
+    {% for comment in post.comments %}
+    <li>
+      <article class="comment" id="{{ comment.id }}" aria-labelledby="comment-author-{{ comment.id }}">
+        <header class="comment-header">
+          <h3 class="comment-author" id="comment-author-{{ comment.id }}">{{ comment.author }}</h3>
+          <time datetime="{{ comment.date }}">{{ comment.date_label }}</time>
+        </header>
+        <div class="comment-content prose">{{ comment.body|render_content }}</div>
+      </article>
+    </li>
+    {% endfor %}
+  </ol>
+  {% endif %}
+</section>

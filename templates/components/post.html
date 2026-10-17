@@ -1,0 +1,11 @@
+<article class="post" id="{{ post.anchor_id }}" aria-labelledby="post-title-{{ post.slug }}">
+  <header class="post-header">
+    <{{ 'h1' if route.kind == 'post' else 'h2' }} class="post-title" id="post-title-{{ post.slug }}"><a href="{{ url(post.path) }}">{{ post.title }}</a></{{ 'h1' if route.kind == 'post' else 'h2' }}>
+    <div class="post-meta">
+      <time datetime="{{ post.date }}">{{ post.date_label }}</time>
+      <a href="{{ url(post.path) }}#comments">{{ post.comments|length }} {{ 'Comment' if post.comments|length == 1 else 'Comments' }}</a>
+    </div>
+  </header>
+  <div class="post-content prose">{{ post.body|render_content }}</div>
+  <footer class="post-footer"><a href="{{ url(post.path) }}#comments">{{ post.comments|length }} {{ 'Comment' if post.comments|length == 1 else 'Comments' }}</a></footer>
+</article>

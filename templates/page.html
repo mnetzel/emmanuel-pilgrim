@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+{% block content %}
+  <div class="page-content prose" data-content="{{ route.content }}">
+    {% if route.content in ['welcome', 'faq'] %}<h1 class="visually-hidden">{{ route.heading }}</h1>{% endif %}
+    {{ body|render_content }}
+  </div>
+{% endblock %}

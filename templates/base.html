@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ route.title }}</title>
+  <meta name="description" content="{{ route.description }}">
+  <link rel="canonical" href="{{ canonical }}">
+  <meta property="og:site_name" content="{{ site.name }}">
+  <meta property="og:title" content="{{ page_title }}">
+  <meta property="og:description" content="{{ route.description }}">
+  <meta property="og:type" content="{{ 'article' if route.kind == 'post' else 'website' }}">
+  <meta property="og:url" content="{{ canonical }}">
+  {% if route.hero %}<meta property="og:image" content="{{ absolute_url(route.hero.src) }}">{% endif %}
+  {% if route.kind == 'post' %}<meta property="article:published_time" content="{{ post.date }}">{% endif %}
+  <link rel="stylesheet" href="{{ url('assets/css/site.css') }}">
+  <script src="{{ url('assets/js/site.js') }}" defer></script>
+</head>
+<body class="page-{{ route.section }}">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  {% include 'components/site-header.html' %}
+  {% if route.hero %}{% include 'components/hero.html' %}{% endif %}
+  <main id="main-content" class="{{ 'blog-layout' if route.kind != 'page' else 'page-layout' }}" tabindex="-1">
+    {% block content %}{% endblock %}
+  </main>
+  {% include 'components/site-footer.html' %}
+  {% include 'components/photo-viewer.html' %}
+</body>
+</html>
