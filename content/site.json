@@ -1,0 +1,36 @@
+{
+  "name": "Emmanuel, French Pilgrim",
+  "url": "https://mnetzel.github.io/emmanuel-pilgrim/",
+  "navigation": [
+    {
+      "label": "Welcome",
+      "path": "index.html"
+    },
+    {
+      "label": "Blog",
+      "path": "blog.html"
+    },
+    {
+      "label": "About",
+      "path": "about.html"
+    },
+    {
+      "label": "Contact",
+      "path": "contact.html"
+    },
+    {
+      "label": "FAQ",
+      "path": "faq.html"
+    }
+  ],
+  "blog": {
+    "page_size": 10,
+    "description": "Stories, photographs and encounters from Emmanuel’s walking pilgrimage.",
+    "hero": {
+      "src": "assets/images/emmanuel-forest-header.jpg",
+      "alt": "Emmanuel’s backpack and tent beneath the trees",
+      "width": 3264,
+      "height": 2448
+    }
+  }
+}

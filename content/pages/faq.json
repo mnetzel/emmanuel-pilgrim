@@ -1,0 +1,13 @@
+{
+  "path": "faq.html",
+  "title": "FAQ - Emmanuel, French Pilgrim",
+  "description": "     ​I am asked nearly every time I meet someone how many kilometers I walk per day.      It's a really legitimate question, for sure. But I can't really answer it without some explanation....",
+  "hero": {
+    "src": "assets/images/771408768.jpg",
+    "alt": "A scene from Emmanuel’s journey",
+    "width": 2216,
+    "height": 936
+  },
+  "section": "faq",
+  "heading": "Frequently asked questions"
+}

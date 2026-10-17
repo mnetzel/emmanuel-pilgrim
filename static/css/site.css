@@ -1,0 +1,136 @@
+/* Foundations: shared colors, typography, spacing and reading widths. */
+@import url("fonts.css");
+
+:root {
+  --paper: #f6f3ec;
+  --ink: #323c32;
+  --forest: #354b30;
+  --olive: #536448;
+  --muted: #69705e;
+  --line: #d9d7ca;
+  --ochre: #a17b49;
+  --font-body: "Crimson Text", Georgia, serif;
+  --font-heading: "Cardo", Georgia, serif;
+  --font-navigation: "Quattrocento Sans", sans-serif;
+  --content-width: 920px;
+  --hero-width: 1150px;
+}
+
+* { box-sizing: border-box; }
+html { background: var(--paper); scroll-padding-top: 76px; }
+body { margin: 0; color: var(--ink); font: 20px/1.8 var(--font-body); -webkit-font-smoothing: antialiased; }
+a { color: var(--olive); text-decoration: none; text-underline-offset: .18em; }
+a:hover { color: #8b6335; }
+button { font: inherit; }
+img { max-width: 100%; height: auto; }
+::selection { background: #dce3cf; color: #263326; }
+:focus-visible { outline: 2px solid var(--ochre); outline-offset: 5px; }
+.visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
+.skip-link { position: fixed; top: 8px; left: 12px; z-index: 30; padding: 8px 16px; background: var(--paper); border: 1px solid var(--ochre); transform: translateY(-160%); }
+.skip-link:focus { transform: translateY(0); }
+
+/* Site header and navigation. */
+.site-header { padding: 54px 24px 10px; text-align: center; }
+.site-brand { display: block; margin: 0 auto 25px; color: #33452f; font: 400 34px/1.25 var(--font-heading); letter-spacing: .015em; }
+.primary-navigation ul { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; padding: 10px 0 0; margin: 0; list-style: none; }
+.primary-navigation a { display: block; padding: 8px 19px 13px; color: #626958; font: 12px/19px var(--font-navigation); letter-spacing: .16em; text-transform: uppercase; }
+.primary-navigation a[aria-current] { color: #30482d; box-shadow: inset 0 -1px var(--ochre); }
+.primary-navigation a:hover { color: #30482d; }
+.menu-toggle { display: none; }
+
+/* Hero photography keeps the established framing and original files. */
+.page-hero { position: relative; max-width: var(--hero-width); width: calc(100% - 80px); height: 510px; margin: 24px auto 0; }
+.page-hero::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: rgb(20 35 18 / 3.5%); }
+.page-hero-image { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center; }
+
+/* Page layouts: normal content, welcome reading column, blog with archives. */
+.page-layout { width: min(var(--content-width), calc(100% - 40px)); margin: 0 auto; padding: 64px 0; }
+.page-welcome .page-layout { max-width: 750px; }
+.page-welcome .page-content > p:first-of-type::first-line { color: #40553a; font-style: italic; }
+.blog-layout { display: grid; grid-template-columns: minmax(0, 1fr) 200px; gap: 28px; width: min(var(--content-width), calc(100% - 40px)); margin: 0 auto; padding: 64px 0; align-items: start; }
+.post-list, .post-detail { min-width: 0; }
+.site-footer { border-top: 1px solid var(--line); min-height: 1px; }
+
+/* Editorial content. All paragraph and image spacing lives here. */
+.prose p { margin: 0 0 1.25em; overflow-wrap: anywhere; }
+.prose h1, .prose h2, .prose h3 { color: #3a4d34; font-family: var(--font-heading); font-weight: 400; line-height: 1.4; }
+.prose h1, .prose h2 { font-size: 26px; margin: 0 0 20px; }
+.prose h2:not(:first-child) { margin-top: 44px; }
+.prose h3 { font-size: 23px; }
+.prose a:not([data-lightbox]) { text-decoration: underline; }
+.prose strong { font-weight: 700; }
+.prose ul, .prose ol { padding-left: 1.5em; }
+.prose .factor-list { padding: 0; list-style: none; }
+.prose blockquote { margin: 24px 0; padding-left: 26px; border-left: 2px solid #a7ad92; color: #59684f; font-style: italic; }
+.journey-photo { margin: 20px 0; text-align: center; }
+.journey-photo a { display: inline-block; max-width: 100%; cursor: zoom-in; }
+.journey-photo img { display: block; width: auto; max-width: 100%; border-radius: 2px; }
+.journey-photo figcaption { margin-top: 8px; font-size: 17px; color: var(--muted); }
+
+/* Articles, dates, archive navigation and pagination. */
+.post { margin: 0 0 76px; }
+.post-header { padding-bottom: 24px; margin-bottom: 25px; border-bottom: 1px solid var(--line); }
+.post-title { margin: 0 0 18px; font: 400 35px/1.3 var(--font-heading); letter-spacing: -.025em; overflow-wrap: anywhere; }
+.post-title a { color: var(--forest); }
+.post-meta { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; font-size: 16px; color: #757861; }
+.post-meta a { color: var(--muted); }
+.post-footer { margin-top: 28px; font-size: 16px; }
+.blog-sidebar h2 { font: 400 22px/1.4 var(--font-heading); color: #3a4d34; margin: 0 0 20px; }
+.archive-navigation ul { list-style: none; padding: 0; margin: 0; }
+.archive-navigation a { color: #66725b; font-size: 18px; line-height: 1.9; }
+.archive-navigation a[aria-current] { text-decoration: underline; }
+.archive-navigation a:hover { color: #8b6335; }
+.pagination { display: flex; justify-content: space-between; gap: 24px; padding: 24px 0; border-top: 1px solid var(--line); }
+.pagination-newer { margin-left: auto; }
+
+/* Preserved reader comments; no inactive reply controls. */
+.post-comments { scroll-margin-top: 80px; }
+.post-comments > h2 { font: 400 26px/1.4 var(--font-heading); }
+.comment-list { list-style: none; padding: 0; margin: 0; }
+.comment { margin: 24px 0; padding: 22px 0; border-top: 1px solid var(--line); }
+.comment-header { display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+.comment-author { margin: 0; font: 700 18px/1.4 var(--font-navigation); }
+.comment-header time { font-size: 16px; color: var(--muted); }
+.comment-content p:last-child { margin-bottom: 0; }
+
+/* Keyboard-accessible native dialog for full-size photographs. */
+.photo-viewer { border: 0; padding: 0; background: transparent; max-width: 96vw; max-height: 96dvh; }
+.photo-viewer::backdrop { background: rgb(0 0 0 / 88%); }
+.photo-viewer-image { display: block; max-width: 94vw; max-height: 90dvh; object-fit: contain; }
+.photo-viewer-close { position: fixed; right: 20px; top: 10px; color: white; background: #222; border: 0; font: 36px/1 sans-serif; cursor: pointer; padding: 5px 12px; }
+
+@media (max-width: 767px) {
+  body { font-size: 19px; line-height: 1.7; }
+  .site-header { padding: 13px 56px 0 16px; }
+  .site-brand { margin: 0; font-size: 22px; letter-spacing: 0; min-height: 37px; text-align: left; }
+  .has-js .menu-toggle { display: block; position: absolute; right: 16px; top: 9px; width: 36px; height: 36px; padding: 7px; border: 0; background: transparent; color: var(--ink); cursor: pointer; }
+  .menu-toggle-icon, .menu-toggle-icon::before, .menu-toggle-icon::after { display: block; width: 22px; height: 2px; background: currentColor; }
+  .menu-toggle-icon { position: relative; }
+  .menu-toggle-icon::before, .menu-toggle-icon::after { position: absolute; content: ""; left: 0; }
+  .menu-toggle-icon::before { top: -7px; }
+  .menu-toggle-icon::after { top: 7px; }
+  .primary-navigation { padding-top: 10px; }
+  .has-js .primary-navigation { display: none; }
+  .has-js .primary-navigation.is-open { display: block; }
+  .primary-navigation ul { flex-direction: column; align-items: stretch; gap: 0; }
+  .primary-navigation a { padding: 14px 0; }
+  .page-hero { width: calc(100% - 28px); height: 360px; margin-top: 14px; }
+  .page-layout, .blog-layout { width: calc(100% - 52px); padding-top: 40px; padding-bottom: 40px; }
+  .blog-layout { grid-template-columns: minmax(0, 1fr); gap: 40px; }
+  .post-title { font-size: 29px; }
+  .post { margin-bottom: 48px; }
+  .blog-sidebar { border-top: 1px solid var(--line); padding-top: 32px; }
+  .archive-navigation ul { columns: 2; column-gap: 20px; }
+  .archive-navigation li { break-inside: avoid; }
+  .journey-photo { margin: 18px 0; }
+  .page-contact .page-layout { margin-top: 8px; }
+}
+
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto; } }
+@media print {
+  .primary-navigation, .menu-toggle, .page-hero, .blog-sidebar, .pagination, .photo-viewer, .post-footer { display: none; }
+  body { background: white; color: black; font-size: 12pt; }
+  .site-header { padding: 0 0 20px; }
+  .page-layout, .blog-layout { display: block; width: 100%; padding: 0; }
+  .journey-photo { break-inside: avoid; }
+}

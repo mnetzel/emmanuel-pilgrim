@@ -1,0 +1,12 @@
+/* Local WOFF2 fonts retained from the existing design. */
+@font-face { font-family: "Cardo"; font-style: normal; font-weight: 400; font-display: swap; src: url("../fonts/cardo-400-normal.woff2") format("woff2"); }
+@font-face { font-family: "Cardo"; font-style: italic; font-weight: 400; font-display: swap; src: url("../fonts/cardo-400-italic.woff2") format("woff2"); }
+@font-face { font-family: "Cardo"; font-style: normal; font-weight: 700; font-display: swap; src: url("../fonts/cardo-700-normal.woff2") format("woff2"); }
+@font-face { font-family: "Crimson Text"; font-style: normal; font-weight: 400; font-display: swap; src: url("../fonts/crimson-text-400-normal.woff2") format("woff2"); }
+@font-face { font-family: "Crimson Text"; font-style: italic; font-weight: 400; font-display: swap; src: url("../fonts/crimson-text-400-italic.woff2") format("woff2"); }
+@font-face { font-family: "Crimson Text"; font-style: normal; font-weight: 700; font-display: swap; src: url("../fonts/crimson-text-700-normal.woff2") format("woff2"); }
+@font-face { font-family: "Crimson Text"; font-style: italic; font-weight: 700; font-display: swap; src: url("../fonts/crimson-text-700-italic.woff2") format("woff2"); }
+@font-face { font-family: "Quattrocento Sans"; font-style: normal; font-weight: 400; font-display: swap; src: url("../fonts/quattrocento-sans-400-normal.woff2") format("woff2"); }
+@font-face { font-family: "Quattrocento Sans"; font-style: italic; font-weight: 400; font-display: swap; src: url("../fonts/quattrocento-sans-400-italic.woff2") format("woff2"); }
+@font-face { font-family: "Quattrocento Sans"; font-style: normal; font-weight: 700; font-display: swap; src: url("../fonts/quattrocento-sans-700-normal.woff2") format("woff2"); }
+@font-face { font-family: "Quattrocento Sans"; font-style: italic; font-weight: 700; font-display: swap; src: url("../fonts/quattrocento-sans-700-italic.woff2") format("woff2"); }

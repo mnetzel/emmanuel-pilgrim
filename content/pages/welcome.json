@@ -1,0 +1,13 @@
+{
+  "path": "index.html",
+  "title": "Emmanuel, French Pilgrim - Welcome",
+  "description": "Welcome to this space that feels a bit out of time, a bit out of the world. ​     It's \"a bit out of time\" because walking for years through mountains, forests, and borders as part of a spiritual...",
+  "hero": {
+    "src": "assets/images/emmanuel-lake-header.png",
+    "alt": "Backpack and walking staff beside a tree overlooking a lake",
+    "width": 1392,
+    "height": 720
+  },
+  "section": "welcome",
+  "heading": "Welcome"
+}

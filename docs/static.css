@@ -1,8 +1,0 @@
-/* Small replacements for interactions previously supplied by the Weebly runtime. */
-.static-menu-open .mobile-nav { max-height: calc(100dvh - 50px); opacity: 1; }
-.static-menu-open { overflow: hidden; }
-.photo-viewer { border: 0; padding: 0; background: transparent; max-width: 96vw; max-height: 96dvh; }
-.photo-viewer::backdrop { background: rgba(0,0,0,.88); }
-.photo-viewer img { display: block; max-width: 94vw; max-height: 90dvh; object-fit: contain; }
-.photo-viewer button { position: fixed; right: 20px; top: 10px; color: white; background: #222; border: 0; font: 36px/1 sans-serif; cursor: pointer; padding: 5px 12px; }
-a[data-lightbox] { cursor: zoom-in; }
