@@ -36,3 +36,11 @@ External social links still lead to their original services.
 
 The experimental AI photo edits in the top-level `assets/` folder are excluded
 from the published site. The website uses the original photographs exclusively.
+
+## Alternative visual edition (V2)
+
+`docs/v2/` is a separate warm, book-inspired visual edition at
+https://mnetzel.github.io/emmanuel-pilgrim/v2/. It shares the original assets
+and JavaScript; the original edition is unchanged. Edit `docs/v2/theme.css`
+to change its appearance. After editing original page content, run
+`python scripts/build-v2.py` to synchronize V2, then `python scripts/check.py`.

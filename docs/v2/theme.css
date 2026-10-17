@@ -1,0 +1,58 @@
+/* A quiet field journal: warm paper, forest ink, book typography. */
+:root { --paper: #f6f3ec; --ink: #323c32; --muted: #68705e; --line: #d9d7ca; --olive: #536448; --ochre: #a17b49; }
+html, body, .wrapper, .cento-header, .cento-header .nav-wrap,
+.content-wrap, .footer-wrap, .wsite-body-section, .mobile-nav { background-color: var(--paper) !important; }
+body { color: var(--ink); }
+a { color: var(--olive); }
+a:hover { color: #8b6335; }
+::selection { background: #dce3cf; color: #263326; }
+.cento-header { padding-top: 54px; }
+.cento-header .logo { margin-bottom: 25px; }
+.cento-header .logo #wsite-title { max-width: none; }
+.cento-header #wsite-title { font-family: 'Cardo', Georgia, serif !important; font-size: 34px !important; font-weight: 400; letter-spacing: .015em !important; color: #33452f; }
+.cento-header .logo::before { content: ''; display: block; width: 1px; height: 26px; background: var(--ochre); margin: 0 auto 22px; }
+.nav ul li a { color: #626958; font-size: 12px; letter-spacing: .16em; padding: 8px 19px 13px; }
+.nav ul li#active > a.wsite-menu-item { color: #30482d; box-shadow: inset 0 -1px var(--ochre); }
+.nav ul li > a.wsite-menu-item:hover { color: #30482d; }
+.banner-wrap { max-width: 1150px; width: calc(100% - 80px); margin-top: 24px; }
+.wsite-header-section { height: 510px !important; background-position: center center !important; }
+.wsite-header-section::before { background: rgba(20,35,18,.035); }
+.content-wrap .container { padding-top: 64px; padding-bottom: 64px; }
+.wsite-page-index .content-wrap .container { max-width: 790px; }
+.wsite-page-index #wsite-content .paragraph { text-align: left !important; }
+.wsite-page-index #wsite-content .paragraph::first-line { color: #40553a; font-style: italic; }
+body #wsite-content div.paragraph, body #wsite-content p,
+body .wsite-elements.wsite-not-footer:not(.wsite-header-elements) div.paragraph,
+body .blog-sidebar div.paragraph, body .blog-sidebar p {
+  font-family: 'Crimson Text', Georgia, serif !important;
+  font-size: 20px !important; line-height: 1.8 !important; color: var(--ink);
+}
+body #wsite-content h2, body .blog-sidebar h2 { font-family: 'Cardo', Georgia, serif !important; color: #3a4d34 !important; font-weight: 400; line-height: 1.4 !important; }
+body .blog-header h2 a { font-family: 'Cardo', Georgia, serif !important; font-size: 35px !important; line-height: 1.3; letter-spacing: -.025em !important; color: #354b30; }
+.blog-header { border-color: var(--line) !important; padding-bottom: 24px; }
+body .blog-header h2.blog-title { text-align: left !important; }
+.blog-date, .blog-comments, .blog-comment-link { color: #757861; font-size: 14px; }
+.blog-post { margin-bottom: 76px; }
+.blog-sidebar-separator { border-color: var(--line) !important; }
+body .blog-sidebar h2 { font-size: 22px !important; margin-bottom: 20px; }
+.blog-sidebar a { color: #66725b; }
+.blog-sidebar a:hover { color: #8b6335; }
+.blog-archive-list { line-height: 1.9; }
+.wsite-image img { border-radius: 2px; }
+blockquote { color: #59684f; border-left: 2px solid #a7ad92; padding-left: 26px; }
+.footer-wrap { border-top: 1px solid var(--line); }
+.edition-link { position: absolute; right: 24px; top: 18px; z-index: 10; font: 11px/1.4 'Quattrocento Sans', sans-serif; color: #727761; letter-spacing: .04em; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--ochre); outline-offset: 5px; }
+@media (max-width: 767px) {
+  .cento-header { padding-top: 0; }
+  .cento-header .logo::before { display: none; }
+  .cento-header #wsite-title { font-size: 22px !important; letter-spacing: 0 !important; }
+  .edition-link { position: static; display: block; text-align: center; padding: 22px; }
+  .banner-wrap { width: calc(100% - 28px); margin-top: 64px; }
+  .wsite-header-section { height: 360px !important; }
+  .content-wrap .container { padding: 40px 26px; }
+  body #wsite-content div.paragraph, body #wsite-content p,
+  body .wsite-elements.wsite-not-footer:not(.wsite-header-elements) div.paragraph { font-size: 19px !important; line-height: 1.7 !important; }
+  body .blog-header h2 a { font-size: 29px !important; }
+  .blog-sidebar { border-top: 1px solid var(--line); padding-top: 32px !important; }
+}
