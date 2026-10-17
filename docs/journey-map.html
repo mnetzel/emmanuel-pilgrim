@@ -45,7 +45,7 @@
   </header>
   <section class="journey-explorer" id="journey-explorer" aria-label="Explore the journey" data-config-url="assets/data/journey/config.json" data-site-root="index.html">
     <div class="journey-toolbar">
-      <p>Paris region <span aria-hidden="true">→</span> Bosnia &amp; Herzegovina</p>
+      <p>38 entries <span aria-hidden="true">·</span> One unfolding journey</p>
       <div class="journey-actions">
         <button type="button" id="journey-fit" disabled>Show full route</button>
         <button type="button" id="journey-fullscreen" hidden>Full screen</button>
@@ -59,72 +59,419 @@
         <fieldset class="journey-layers" id="journey-layers" disabled>
           <legend>On the map</legend>
           <label><input type="checkbox" id="journey-main" checked> <span class="map-key map-key-route" aria-hidden="true"></span> Recorded route</label>
-          <label><input type="checkbox" id="journey-stories" checked> <span class="map-key map-key-story" aria-hidden="true"></span> Journal places</label>
+          <label><input type="checkbox" id="journey-stories" checked> Journal entries</label>
           <label><input type="checkbox" id="journey-additional"> Additional route sketches</label>
           <label><input type="checkbox" id="journey-locations"> Original map points</label>
         </fieldset>
+        <div class="journey-legend" aria-label="Journal marker colours">
+          <span><i class="map-key map-key-story" aria-hidden="true"></i> 22 identified places</span>
+          <span><i class="map-key map-key-estimated" aria-hidden="true"></i> 16 estimated positions</span>
+        </div>
       </div>
       <aside class="journey-sidebar" aria-labelledby="journey-places-title">
         <div class="journey-sidebar-heading">
           <h2 id="journey-places-title">Places &amp; stories</h2>
           <label class="journey-filter-label" for="journey-year">Filter by year</label>
           <select id="journey-year" disabled><option value="all">All years</option></select>
+          <label class="journey-filter-label" for="journey-certainty">Location type</label>
+          <select id="journey-certainty" disabled>
+            <option value="all">All locations</option>
+            <option value="documented">Identified places</option>
+            <option value="estimated">Estimated positions</option>
+          </select>
         </div>
         <ol class="journey-story-list" id="journey-story-list">
-          <li class="journey-story" data-place-id="fulda" data-year="2020">
-            <div class="journey-story-heading"><button type="button" class="journey-locate" data-place-id="fulda" disabled aria-label="Show Fulda on the map">1</button><h3>Fulda<span>Germany</span></h3></div>
+          <li class="journey-story" data-place-id="test-post" data-year="2020" data-status="estimated">
+            <div class="journey-story-heading"><button type="button" class="journey-locate" data-place-id="test-post" disabled aria-label="Show Paris region · departure on the map">1</button><h3>Paris region · departure<span>France</span></h3></div>
+            <a class="journey-story-link" href="blog/test-post/index.html">Beginning of the Pilgrimage</a>
+            <p class="journey-story-date">Published <time datetime="2020-09-24">24/9/2020</time></p>
+            <p class="journey-certainty journey-certainty-estimated">Approximate departure area</p>
+            <details class="journey-evidence">
+              <summary>Why this location?</summary>
+              <p>No village is named. Shown at the beginning of the recorded route as an approximate departure area; the campsite cannot be located.</p>
+<blockquote>I started my pilgrimage trip 2 days ago.</blockquote>            </details>
+          </li>
+          <li class="journey-story" data-place-id="the-bizarre-scene" data-year="2020" data-status="documented">
+            <div class="journey-story-heading"><button type="button" class="journey-locate" data-place-id="the-bizarre-scene" disabled aria-label="Show Hénonville · Bois Joli campsite on the map">2</button><h3>Hénonville · Bois Joli campsite<span>France</span></h3></div>
+            <a class="journey-story-link" href="blog/the-bizarre-scene/index.html">The Bizarre Scene</a>
+            <p class="journey-story-date">Published <time datetime="2020-09-26">26/9/2020</time></p>
+            <p class="journey-certainty journey-certainty-documented">Place identified from the entry</p>
+            <details class="journey-evidence">
+              <summary>Why this location?</summary>
+              <p>The campsite name, French Vexin and proximity to Méru identify Hénonville. The marker uses the village centre, not the exact pitch.</p>
+<blockquote>The &#39;Bois Joli&#39; camping</blockquote><blockquote>located in the French Vexin</blockquote><blockquote>not very far from Méru</blockquote><a href="https://www.wikidata.org/wiki/Q1346675">Coordinate source</a><a href="https://oise.media.tourinsoft.eu/upload/topoguide-boucle-cyclo-des-2-Vexin-au-Pays-de-Nacre.pdf">Identification source</a>            </details>
+          </li>
+          <li class="journey-story" data-place-id="october-16th-2020" data-year="2020" data-status="documented">
+            <div class="journey-story-heading"><button type="button" class="journey-locate" data-place-id="october-16th-2020" disabled aria-label="Show Château-Porcien on the map">3</button><h3>Château-Porcien<span>France</span></h3></div>
+            <a class="journey-story-link" href="blog/october-16th-2020/index.html">France</a>
+            <p class="journey-story-date">Published <time datetime="2020-10-16">16/10/2020</time></p>
+            <p class="journey-certainty journey-certainty-documented">Place named in the entry</p>
+            <details class="journey-evidence">
+              <summary>Why this location?</summary>
+              <p>The opening sentence explicitly places the author in Château-Porcien.</p>
+<blockquote>staying in a communal pilgrims&#39; house in Château-Porcien</blockquote><a href="https://www.wikidata.org/wiki/Q967390">Coordinate source</a>            </details>
+          </li>
+          <li class="journey-story" data-place-id="mushrooms" data-year="2020" data-status="documented">
+            <div class="journey-story-heading"><button type="button" class="journey-locate" data-place-id="mushrooms" disabled aria-label="Show Orval Abbey on the map">4</button><h3>Orval Abbey<span>Belgium</span></h3></div>
+            <a class="journey-story-link" href="blog/mushrooms/index.html">Mushrooms and Orval Abbey</a>
+            <p class="journey-story-date">Published <time datetime="2020-10-26">26/10/2020</time></p>
+            <p class="journey-certainty journey-certainty-documented">Place named in the entry</p>
+            <details class="journey-evidence">
+              <summary>Why this location?</summary>
+              <p>The author explicitly names his overnight stay at Orval Abbey.</p>
+<blockquote>Today, I’m staying in Orval Abbey.</blockquote><a href="https://www.wikidata.org/wiki/Q334099">Coordinate source</a>            </details>
+          </li>
+          <li class="journey-story" data-place-id="november-27th-2020" data-year="2020" data-status="estimated">
+            <div class="journey-story-heading"><button type="button" class="journey-locate" data-place-id="november-27th-2020" disabled aria-label="Show Frankfurt area on the map">5</button><h3>Frankfurt area<span>Germany</span></h3></div>
+            <a class="journey-story-link" href="blog/november-27th-2020/index.html">Germany</a>
+            <p class="journey-story-date">Published <time datetime="2020-11-27">27/11/2020</time></p>
+            <p class="journey-certainty journey-certainty-estimated">Estimated area from the text</p>
+            <details class="journey-evidence">
+              <summary>Why this location?</summary>
+              <p>The text places him just beyond Frankfurt but gives no village. The nearby part of the recorded route is used as a regional estimate; the direction in the prose is not precise enough to locate the campsite.</p>
+<blockquote>a little past Frankfurt, heading south</blockquote>            </details>
+          </li>
+          <li class="journey-story" data-place-id="fulda" data-year="2020" data-status="documented">
+            <div class="journey-story-heading"><button type="button" class="journey-locate" data-place-id="fulda" disabled aria-label="Show Fulda on the map">6</button><h3>Fulda<span>Germany</span></h3></div>
             <a class="journey-story-link" href="blog/fulda/index.html">Fulda</a>
             <p class="journey-story-date">Published <time datetime="2020-12-06">6/12/2020</time></p>
+            <p class="journey-certainty journey-certainty-documented">Place named in the entry</p>
+            <details class="journey-evidence">
+              <summary>Why this location?</summary>
+              <p>Fulda is explicitly visited in this entry; the later host family is not located precisely.</p>
+<blockquote>I first discovered the beautiful city of Fulda</blockquote><a href="https://www.wikidata.org/wiki/Q3963">Coordinate source</a>            </details>
           </li>
-          <li class="journey-story" data-place-id="wroclaw" data-year="2021">
-            <div class="journey-story-heading"><button type="button" class="journey-locate" data-place-id="wroclaw" disabled aria-label="Show Wrocław on the map">2</button><h3>Wrocław<span>Poland</span></h3></div>
+          <li class="journey-story" data-place-id="the-alpha-point" data-year="2020" data-status="documented">
+            <div class="journey-story-heading"><button type="button" class="journey-locate" data-place-id="the-alpha-point" disabled aria-label="Show Point Alpha · Geisa / Rasdorf on the map">7</button><h3>Point Alpha · Geisa / Rasdorf<span>Germany</span></h3></div>
+            <a class="journey-story-link" href="blog/the-alpha-point/index.html">The Alpha Point</a>
+            <p class="journey-story-date">Published <time datetime="2020-12-15">15/12/2020</time></p>
+            <p class="journey-certainty journey-certainty-documented">Place identified from the entry</p>
+            <details class="journey-evidence">
+              <summary>Why this location?</summary>
+              <p>The named memorial and description of the former border identify Point Alpha between Geisa and Rasdorf.</p>
+<blockquote>The Alpha Point!</blockquote><blockquote>I’ve just entered the former East Germany.</blockquote><a href="https://www.wikidata.org/wiki/Q318112">Coordinate source</a><a href="https://www.pointalpha.com/kontakt/">Identification source</a>            </details>
+          </li>
+          <li class="journey-story" data-place-id="germany-2" data-year="2020" data-status="documented">
+            <div class="journey-story-heading"><button type="button" class="journey-locate" data-place-id="germany-2" disabled aria-label="Show Buchenwald · near Weimar on the map">8</button><h3>Buchenwald · near Weimar<span>Germany</span></h3></div>
+            <a class="journey-story-link" href="blog/germany-2/index.html">East Germany</a>
+            <p class="journey-story-date">Published <time datetime="2020-12-23">23/12/2020</time></p>
+            <p class="journey-certainty journey-certainty-documented">Place named in the entry</p>
+            <details class="journey-evidence">
+              <summary>Why this location?</summary>
+              <p>Buchenwald is a confirmed visit described as yesterday. Leipzig also appears in a recollection; the marker locates the named visit, not every event in the post.</p>
+<blockquote>Yesterday, as a sort of duty to humanity, I made a detour to the former Nazi concentration camp of Buchenwald</blockquote><a href="https://www.wikidata.org/wiki/Q152802">Coordinate source</a>            </details>
+          </li>
+          <li class="journey-story" data-place-id="signal" data-year="2021" data-status="documented">
+            <div class="journey-story-heading"><button type="button" class="journey-locate" data-place-id="signal" disabled aria-label="Show Görlitz · Polish border on the map">9</button><h3>Görlitz · Polish border<span>Germany / Poland</span></h3></div>
+            <a class="journey-story-link" href="blog/signal/index.html">First Week in Poland</a>
+            <p class="journey-story-date">Published <time datetime="2021-01-28">28/1/2021</time></p>
+            <p class="journey-certainty journey-certainty-documented">Place named in the entry</p>
+            <details class="journey-evidence">
+              <summary>Why this location?</summary>
+              <p>The entry recounts crossing into Poland at Görlitz. It is a border-stage marker; he had already been in Poland for a week when writing.</p>
+<blockquote>the police at the border in Görlitz</blockquote><blockquote>Of course, I was allowed to cross the border, and so I did.</blockquote><a href="https://www.wikidata.org/wiki/Q4077">Coordinate source</a>            </details>
+          </li>
+          <li class="journey-story" data-place-id="winter-in-poland" data-year="2021" data-status="documented">
+            <div class="journey-story-heading"><button type="button" class="journey-locate" data-place-id="winter-in-poland" disabled aria-label="Show Wrocław on the map">10</button><h3>Wrocław<span>Poland</span></h3></div>
             <a class="journey-story-link" href="blog/winter-in-poland/index.html">Winter in Poland (Czestochowa, Warsaw)</a>
             <p class="journey-story-date">Published <time datetime="2021-02-19">19/2/2021</time></p>
+            <p class="journey-certainty journey-certainty-documented">Place named in the entry</p>
+            <details class="journey-evidence">
+              <summary>Why this location?</summary>
+              <p>The body explicitly describes a four-day stay in Wrocław. The title mentions Częstochowa and Warsaw but does not locate the narrated stay there.</p>
+<blockquote>a beautiful city, Wrocław</blockquote><blockquote>It’s been four days since I got here.</blockquote><a href="https://www.wikidata.org/wiki/Q1799">Coordinate source</a>            </details>
           </li>
-          <li class="journey-story" data-place-id="vilnius" data-year="2021">
-            <div class="journey-story-heading"><button type="button" class="journey-locate" data-place-id="vilnius" disabled aria-label="Show Vilnius on the map">3</button><h3>Vilnius<span>Lithuania</span></h3></div>
+          <li class="journey-story" data-place-id="meeting-with-a-wolf" data-year="2021" data-status="estimated">
+            <div class="journey-story-heading"><button type="button" class="journey-locate" data-place-id="meeting-with-a-wolf" disabled aria-label="Show Eastern Poland · forest encounter on the map">11</button><h3>Eastern Poland · forest encounter<span>Poland</span></h3></div>
+            <a class="journey-story-link" href="blog/meeting-with-a-wolf/index.html">Meeting with a Wolf</a>
+            <p class="journey-story-date">Published <time datetime="2021-05-14">14/5/2021</time></p>
+            <p class="journey-certainty journey-certainty-estimated">Estimated from dates</p>
+            <details class="journey-evidence">
+              <summary>Why this location?</summary>
+              <p>The present encounter is in an unnamed forest. East Germany refers to an earlier wolf sighting. Estimated by publication date between Wrocław and the approximate Biebrza stage.</p>
+<blockquote>Today I saw a wolf!</blockquote><blockquote>The first was in East Germany</blockquote><blockquote>this huge forest</blockquote><p>Estimated along the recorded route between Wrocław (19/2/2021) and Biebrza valley · host family (25/5/2021), using publication dates. At least one bounding location is itself approximate.</p>            </details>
+          </li>
+          <li class="journey-story" data-place-id="hippie-family" data-year="2021" data-status="estimated">
+            <div class="journey-story-heading"><button type="button" class="journey-locate" data-place-id="hippie-family" disabled aria-label="Show Biebrza valley · host family on the map">12</button><h3>Biebrza valley · host family<span>Poland</span></h3></div>
+            <a class="journey-story-link" href="blog/hippie-family/index.html">Hippie Family</a>
+            <p class="journey-story-date">Published <time datetime="2021-05-25">25/5/2021</time></p>
+            <p class="journey-certainty journey-certainty-estimated">Estimated area from the text</p>
+            <details class="journey-evidence">
+              <summary>Why this location?</summary>
+              <p>The named guide identifies the Biebrza area. In a May 2021 interview she mentions moving from Kulesze to Stare Bajki, so neither village can be asserted as this particular stay. The route near Kulesze is only a regional estimate.</p>
+<blockquote>a “hippie family” in northern Poland</blockquote><blockquote>The mother is a tour guide in the national park!</blockquote><blockquote>Biebrzańska Wiedźma</blockquote><a href="https://napedzanimarzeniami.pl/podcast/wiedzma/">Identification source</a>            </details>
+          </li>
+          <li class="journey-story" data-place-id="arrival-in-lithuania" data-year="2021" data-status="estimated">
+            <div class="journey-story-heading"><button type="button" class="journey-locate" data-place-id="arrival-in-lithuania" disabled aria-label="Show Southern Lithuania on the map">13</button><h3>Southern Lithuania<span>Lithuania</span></h3></div>
+            <a class="journey-story-link" href="blog/arrival-in-lithuania/index.html">Arrival in Lithuania</a>
+            <p class="journey-story-date">Published <time datetime="2021-06-10">10/6/2021</time></p>
+            <p class="journey-certainty journey-certainty-estimated">Estimated from dates</p>
+            <details class="journey-evidence">
+              <summary>Why this location?</summary>
+              <p>The country and border arrival are explicit, but the hosts and villages are not located. Estimated along the route from the Biebrza stage towards Vilnius.</p>
+<blockquote>It’s been a week now since I arrived in Lithuania</blockquote><blockquote>vast forests, crystal-clear lakes, and charming little rivers</blockquote><p>Estimated along the recorded route between Biebrza valley · host family (25/5/2021) and Vilnius (6/7/2021), using publication dates. At least one bounding location is itself approximate.</p>            </details>
+          </li>
+          <li class="journey-story" data-place-id="vilnius" data-year="2021" data-status="documented">
+            <div class="journey-story-heading"><button type="button" class="journey-locate" data-place-id="vilnius" disabled aria-label="Show Vilnius on the map">14</button><h3>Vilnius<span>Lithuania</span></h3></div>
             <a class="journey-story-link" href="blog/vilnius/index.html">Vilnius</a>
             <p class="journey-story-date">Published <time datetime="2021-07-06">6/7/2021</time></p>
+            <p class="journey-certainty journey-certainty-documented">Place named in the entry</p>
+            <details class="journey-evidence">
+              <summary>Why this location?</summary>
+              <p>Vilnius and the Gate of Dawn are confirmed visits. Publication came a week after departure; later encounters north of the city have no secure village identification.</p>
+<blockquote>I should have told you about Vilnius, my second destination.</blockquote><blockquote>It&#39;s already been a week since I left the place</blockquote><a href="https://www.wikidata.org/wiki/Q216">Coordinate source</a>            </details>
           </li>
-          <li class="journey-story" data-place-id="aglona" data-year="2021">
-            <div class="journey-story-heading"><button type="button" class="journey-locate" data-place-id="aglona" disabled aria-label="Show Aglona on the map">4</button><h3>Aglona<span>Latvia</span></h3></div>
+          <li class="journey-story" data-place-id="meeting-with-a-moose" data-year="2021" data-status="estimated">
+            <div class="journey-story-heading"><button type="button" class="journey-locate" data-place-id="meeting-with-a-moose" disabled aria-label="Show Between Vilnius and Aglona on the map">15</button><h3>Between Vilnius and Aglona<span>Lithuania</span></h3></div>
+            <a class="journey-story-link" href="blog/meeting-with-a-moose/index.html">Meeting with a Moose</a>
+            <p class="journey-story-date">Published <time datetime="2021-07-11">11/7/2021</time></p>
+            <p class="journey-certainty journey-certainty-estimated">Estimated from dates</p>
+            <details class="journey-evidence">
+              <summary>Why this location?</summary>
+              <p>The short wildlife entry names no town. Estimated along the northbound route between the Vilnius and Aglona publication dates.</p>
+<blockquote>I saw my first wild moose—a female!</blockquote><p>Estimated along the recorded route between Vilnius (6/7/2021) and Aglona (17/8/2021), using publication dates.</p>            </details>
+          </li>
+          <li class="journey-story" data-place-id="aglona" data-year="2021" data-status="documented">
+            <div class="journey-story-heading"><button type="button" class="journey-locate" data-place-id="aglona" disabled aria-label="Show Aglona on the map">16</button><h3>Aglona<span>Latvia</span></h3></div>
             <a class="journey-story-link" href="blog/aglona/index.html">Aglona</a>
             <p class="journey-story-date">Published <time datetime="2021-08-17">17/8/2021</time></p>
+            <p class="journey-certainty journey-certainty-documented">Place named in the entry</p>
+            <details class="journey-evidence">
+              <summary>Why this location?</summary>
+              <p>The author explicitly stays at the Aglona festival and leaves after lunch. Šiluva and the Hill of Crosses are future destinations in this entry.</p>
+<blockquote>The festival here in Aglona has ended.</blockquote><a href="https://www.wikidata.org/wiki/Q372999">Coordinate source</a>            </details>
           </li>
-          <li class="journey-story" data-place-id="gietrzwald" data-year="2022">
-            <div class="journey-story-heading"><button type="button" class="journey-locate" data-place-id="gietrzwald" disabled aria-label="Show Gietrzwałd on the map">5</button><h3>Gietrzwałd<span>Poland</span></h3></div>
+          <li class="journey-story" data-place-id="ask-bilbo" data-year="2021" data-status="estimated">
+            <div class="journey-story-heading"><button type="button" class="journey-locate" data-place-id="ask-bilbo" disabled aria-label="Show Leaving Aglona on the map">17</button><h3>Leaving Aglona<span>Latvia</span></h3></div>
+            <a class="journey-story-link" href="blog/ask-bilbo/index.html">Ask Bilbo!</a>
+            <p class="journey-story-date">Published <time datetime="2021-08-23">23/8/2021</time></p>
+            <p class="journey-certainty journey-certainty-estimated">Estimated from dates</p>
+            <details class="journey-evidence">
+              <summary>Why this location?</summary>
+              <p>The narrative follows departure from Aglona, but the shop, lake and hosts are unnamed. Estimated on the returning route towards Lithuania.</p>
+<blockquote>the last days since I left Aglona have been wonderful.</blockquote><p>Estimated along the recorded route between Aglona (17/8/2021) and Hill of Crosses · near Šiauliai (28/9/2021), using publication dates.</p>            </details>
+          </li>
+          <li class="journey-story" data-place-id="krincinas" data-year="2021" data-status="documented">
+            <div class="journey-story-heading"><button type="button" class="journey-locate" data-place-id="krincinas" disabled aria-label="Show Hill of Crosses · near Šiauliai on the map">18</button><h3>Hill of Crosses · near Šiauliai<span>Lithuania</span></h3></div>
+            <a class="journey-story-link" href="blog/krincinas/index.html">The Windmill and Hill of Crosses</a>
+            <p class="journey-story-date">Published <time datetime="2021-09-28">28/9/2021</time></p>
+            <p class="journey-certainty journey-certainty-documented">Place named in the entry</p>
+            <details class="journey-evidence">
+              <summary>Why this location?</summary>
+              <p>The most recent named visit is the Hill of Crosses. Earlier sections also describe Krinčinas and Pasvalys; Šiluva remains ahead, so it is not marked as a completed visit here.</p>
+<blockquote>yesterday I passed through the Hill of Crosses</blockquote><a href="https://www.wikidata.org/wiki/Q223726">Coordinate source</a>            </details>
+          </li>
+          <li class="journey-story" data-place-id="goldap-and-andrzej" data-year="2021" data-status="documented">
+            <div class="journey-story-heading"><button type="button" class="journey-locate" data-place-id="goldap-and-andrzej" disabled aria-label="Show Gołdap on the map">19</button><h3>Gołdap<span>Poland</span></h3></div>
+            <a class="journey-story-link" href="blog/goldap-and-andrzej/index.html">Goldap and Andrzej</a>
+            <p class="journey-story-date">Published <time datetime="2021-11-22">22/11/2021</time></p>
+            <p class="journey-certainty journey-certainty-documented">Place named in the entry</p>
+            <details class="journey-evidence">
+              <summary>Why this location?</summary>
+              <p>The author explicitly gives Gołdap as the place of writing, after Šiluva and Kaunas and before Gietrzwałd.</p>
+<blockquote>I am now in Poland, in the small town of Gołdap, from where I am writing to you.</blockquote><a href="https://www.wikidata.org/wiki/Q947414">Coordinate source</a>            </details>
+          </li>
+          <li class="journey-story" data-place-id="spine" data-year="2021" data-status="estimated">
+            <div class="journey-story-heading"><button type="button" class="journey-locate" data-place-id="spine" disabled aria-label="Show Warmia–Masuria · winter trail on the map">20</button><h3>Warmia–Masuria · winter trail<span>Poland</span></h3></div>
+            <a class="journey-story-link" href="blog/spine/index.html">Spine</a>
+            <p class="journey-story-date">Published <time datetime="2021-12-02">2/12/2021</time></p>
+            <p class="journey-certainty journey-certainty-estimated">Estimated from dates</p>
+            <details class="journey-evidence">
+              <summary>Why this location?</summary>
+              <p>The entry describes ice, snow and the walking stick without naming a settlement. Estimated along the route between Gołdap and Gietrzwałd.</p>
+<blockquote>there’s ice under the snow</blockquote><p>Estimated along the recorded route between Gołdap (22/11/2021) and Gietrzwałd (2/1/2022), using publication dates.</p>            </details>
+          </li>
+          <li class="journey-story" data-place-id="gietrzwald" data-year="2022" data-status="documented">
+            <div class="journey-story-heading"><button type="button" class="journey-locate" data-place-id="gietrzwald" disabled aria-label="Show Gietrzwałd on the map">21</button><h3>Gietrzwałd<span>Poland</span></h3></div>
             <a class="journey-story-link" href="blog/gietrzwald/index.html">Gietrzwald and Olsztyn</a>
             <p class="journey-story-date">Published <time datetime="2022-01-02">2/1/2022</time></p>
+            <p class="journey-certainty journey-certainty-documented">Place named in the entry</p>
+            <details class="journey-evidence">
+              <summary>Why this location?</summary>
+              <p>A confirmed Christmas Day visit to Gietrzwałd. The entry was published in January and later describes an unnamed village; publication is not an exact travel timestamp.</p>
+<blockquote>only arrived in Gietrzwałd on the 25th</blockquote><a href="https://www.wikidata.org/wiki/Q994681">Coordinate source</a>            </details>
           </li>
-          <li class="journey-story" data-place-id="levoca" data-year="2022">
-            <div class="journey-story-heading"><button type="button" class="journey-locate" data-place-id="levoca" disabled aria-label="Show Levoča on the map">6</button><h3>Levoča<span>Slovakia</span></h3></div>
+          <li class="journey-story" data-place-id="meetings" data-year="2022" data-status="documented">
+            <div class="journey-story-heading"><button type="button" class="journey-locate" data-place-id="meetings" disabled aria-label="Show Toruń on the map">22</button><h3>Toruń<span>Poland</span></h3></div>
+            <a class="journey-story-link" href="blog/meetings/index.html">Meetings - Poland and Czech Republic</a>
+            <p class="journey-story-date">Published <time datetime="2022-02-12">12/2/2022</time></p>
+            <p class="journey-certainty journey-certainty-documented">Place named in the entry</p>
+            <details class="journey-evidence">
+              <summary>Why this location?</summary>
+              <p>The long collection ends with an explicit departure from Toruń and an encounter at its river bridge. Earlier lakes, canal-side villages and Lipye/Lipy are not securely geolocated.</p>
+<blockquote>This morning, as I was leaving the magnificent medieval town of Toruń</blockquote><a href="https://www.wikidata.org/wiki/Q47554">Coordinate source</a>            </details>
+          </li>
+          <li class="journey-story" data-place-id="slovakia" data-year="2022" data-status="estimated">
+            <div class="journey-story-heading"><button type="button" class="journey-locate" data-place-id="slovakia" disabled aria-label="Show High Tatras foothills on the map">23</button><h3>High Tatras foothills<span>Slovakia</span></h3></div>
+            <a class="journey-story-link" href="blog/slovakia/index.html">Slovakia</a>
+            <p class="journey-story-date">Published <time datetime="2022-10-20">20/10/2022</time></p>
+            <p class="journey-certainty journey-certainty-estimated">Estimated area from the text</p>
+            <details class="journey-evidence">
+              <summary>Why this location?</summary>
+              <p>Only the mountain region is specified. Shown on the recorded route south of the High Tatras as a regional estimate, without inventing the lake or village.</p>
+<blockquote>Just below the High Tatras</blockquote>            </details>
+          </li>
+          <li class="journey-story" data-place-id="levoca" data-year="2022" data-status="documented">
+            <div class="journey-story-heading"><button type="button" class="journey-locate" data-place-id="levoca" disabled aria-label="Show Levoča on the map">24</button><h3>Levoča<span>Slovakia</span></h3></div>
             <a class="journey-story-link" href="blog/levoca/index.html">Levoca</a>
             <p class="journey-story-date">Published <time datetime="2022-12-01">1/12/2022</time></p>
+            <p class="journey-certainty journey-certainty-documented">Place named in the entry</p>
+            <details class="journey-evidence">
+              <summary>Why this location?</summary>
+              <p>The author explicitly gives the town, date and stay in its centre.</p>
+<blockquote>Levoca, Slovakia 1 December 2022</blockquote><blockquote>I am in a monastery in the center of Levoca</blockquote><a href="https://www.wikidata.org/wiki/Q242478">Coordinate source</a>            </details>
           </li>
-          <li class="journey-story" data-place-id="timisoara" data-year="2024">
-            <div class="journey-story-heading"><button type="button" class="journey-locate" data-place-id="timisoara" disabled aria-label="Show Timișoara on the map">7</button><h3>Timișoara<span>Romania</span></h3></div>
+          <li class="journey-story" data-place-id="tent" data-year="2023" data-status="documented">
+            <div class="journey-story-heading"><button type="button" class="journey-locate" data-place-id="tent" disabled aria-label="Show Klokočov on the map">25</button><h3>Klokočov<span>Slovakia</span></h3></div>
+            <a class="journey-story-link" href="blog/tent/index.html">Tent</a>
+            <p class="journey-story-date">Published <time datetime="2023-02-15">15/2/2023</time></p>
+            <p class="journey-certainty journey-certainty-documented">Place named in the entry</p>
+            <details class="journey-evidence">
+              <summary>Why this location?</summary>
+              <p>Klokočov is the last completed named Slovak stop. Esztergom is still 330 km ahead; the entry does not establish arrival there.</p>
+<blockquote>and finally Klokočov.</blockquote><blockquote>Now, I’m heading to Esztergom</blockquote><a href="https://www.wikidata.org/wiki/Q1032582">Coordinate source</a>            </details>
+          </li>
+          <li class="journey-story" data-place-id="happiness" data-year="2023" data-status="estimated">
+            <div class="journey-story-heading"><button type="button" class="journey-locate" data-place-id="happiness" disabled aria-label="Show Hungary · pilgrim trail on the map">26</button><h3>Hungary · pilgrim trail<span>Hungary</span></h3></div>
+            <a class="journey-story-link" href="blog/happiness/index.html">Happiness</a>
+            <p class="journey-story-date">Published <time datetime="2023-03-30">30/3/2023</time></p>
+            <p class="journey-certainty journey-certainty-estimated">Estimated from dates</p>
+            <details class="journey-evidence">
+              <summary>Why this location?</summary>
+              <p>The country is explicit, but the pilgrim inn and villages are unnamed. Estimated by date between the last Slovak stop and the approximate first Târgu Mureș stage.</p>
+<blockquote>in Hungary, where I am</blockquote><p>Estimated along the recorded route between Klokočov (15/2/2023) and Târgu Mureș area · first passage (11/7/2023), using publication dates. At least one bounding location is itself approximate.</p>            </details>
+          </li>
+          <li class="journey-story" data-place-id="romania" data-year="2023" data-status="estimated">
+            <div class="journey-story-heading"><button type="button" class="journey-locate" data-place-id="romania" disabled aria-label="Show Northwestern Romania on the map">27</button><h3>Northwestern Romania<span>Romania</span></h3></div>
+            <a class="journey-story-link" href="blog/romania/index.html">Romania</a>
+            <p class="journey-story-date">Published <time datetime="2023-05-06">6/5/2023</time></p>
+            <p class="journey-certainty journey-certainty-estimated">Estimated from dates</p>
+            <details class="journey-evidence">
+              <summary>Why this location?</summary>
+              <p>The post combines the Hungary–Romania border crossing with later Romanian encounters over several weeks. No town or border post is named. Estimated by date on the first Romanian section of the recorded route.</p>
+<blockquote>I entered Romania today.</blockquote><blockquote>Now that I’ve been walking here for a few weeks</blockquote><p>Estimated along the recorded route between Klokočov (15/2/2023) and Târgu Mureș area · first passage (11/7/2023), using publication dates. At least one bounding location is itself approximate.</p>            </details>
+          </li>
+          <li class="journey-story" data-place-id="meeting-with-a-bear" data-year="2023" data-status="estimated">
+            <div class="journey-story-heading"><button type="button" class="journey-locate" data-place-id="meeting-with-a-bear" disabled aria-label="Show Târgu Mureș area · first passage on the map">28</button><h3>Târgu Mureș area · first passage<span>Romania</span></h3></div>
+            <a class="journey-story-link" href="blog/meeting-with-a-bear/index.html">Meeting with a Bear</a>
+            <p class="journey-story-date">Published <time datetime="2023-07-11">11/7/2023</time></p>
+            <p class="journey-certainty journey-certainty-estimated">Estimated area from the text</p>
+            <details class="journey-evidence">
+              <summary>Why this location?</summary>
+              <p>This establishes an earlier Târgu Mureș connection, not the bear encounter or flooded campsite. An approximate position on the first passage near the city provides a regional reference; the actual forest cannot be identified.</p>
+<blockquote>the headlamp given to me by a firefighter from Târgu Mureș</blockquote>            </details>
+          </li>
+          <li class="journey-story" data-place-id="transylvania" data-year="2023" data-status="estimated">
+            <div class="journey-story-heading"><button type="button" class="journey-locate" data-place-id="transylvania" disabled aria-label="Show Transylvania · village stop on the map">29</button><h3>Transylvania · village stop<span>Romania</span></h3></div>
+            <a class="journey-story-link" href="blog/transylvania/index.html">Transylvania</a>
+            <p class="journey-story-date">Published <time datetime="2023-07-23">23/7/2023</time></p>
+            <p class="journey-certainty journey-certainty-estimated">Estimated from dates</p>
+            <details class="journey-evidence">
+              <summary>Why this location?</summary>
+              <p>The village, stream and guesthouse are unnamed. Estimated between the approximate first Târgu Mureș passage and the confirmed Cacica visit.</p>
+<blockquote>That was a little hello from Transylvania.</blockquote><p>Estimated along the recorded route between Târgu Mureș area · first passage (11/7/2023) and Cacica (18/11/2023), using publication dates. At least one bounding location is itself approximate.</p>            </details>
+          </li>
+          <li class="journey-story" data-place-id="feast-with-gabriel" data-year="2023" data-status="estimated">
+            <div class="journey-story-heading"><button type="button" class="journey-locate" data-place-id="feast-with-gabriel" disabled aria-label="Show Transylvania · Carpathian foothills on the map">30</button><h3>Transylvania · Carpathian foothills<span>Romania</span></h3></div>
+            <a class="journey-story-link" href="blog/feast-with-gabriel/index.html">Feast with Gabriel</a>
+            <p class="journey-story-date">Published <time datetime="2023-08-08">8/8/2023</time></p>
+            <p class="journey-certainty journey-certainty-estimated">Estimated from dates</p>
+            <details class="journey-evidence">
+              <summary>Why this location?</summary>
+              <p>No village is named. Tibor, Margret, Gabriel, the spring and chapel do not securely identify a settlement. Estimated on the recorded route between the first Târgu Mureș passage and Cacica.</p>
+<blockquote>sub-Carpathian Transylvania!</blockquote><blockquote>a small chalet in a stunning corner of nature in the middle of the Carpathian Mountains</blockquote><p>Estimated along the recorded route between Târgu Mureș area · first passage (11/7/2023) and Cacica (18/11/2023), using publication dates. At least one bounding location is itself approximate.</p>            </details>
+          </li>
+          <li class="journey-story" data-place-id="accident" data-year="2023" data-status="estimated">
+            <div class="journey-story-heading"><button type="button" class="journey-locate" data-place-id="accident" disabled aria-label="Show Romania · forest campsite on the map">31</button><h3>Romania · forest campsite<span>Romania</span></h3></div>
+            <a class="journey-story-link" href="blog/accident/index.html">Accident</a>
+            <p class="journey-story-date">Published <time datetime="2023-08-28">28/8/2023</time></p>
+            <p class="journey-certainty journey-certainty-estimated">Estimated from dates</p>
+            <details class="journey-evidence">
+              <summary>Why this location?</summary>
+              <p>The bear-spray accident takes place at an unnamed spring-side campsite. The Sahara, Normandy and earlier travels are comparisons, not locations of this incident. Estimated by date on the Romanian route.</p>
+<blockquote>I’m camped next to a water source.</blockquote><p>Estimated along the recorded route between Târgu Mureș area · first passage (11/7/2023) and Cacica (18/11/2023), using publication dates. At least one bounding location is itself approximate.</p>            </details>
+          </li>
+          <li class="journey-story" data-place-id="decision" data-year="2023" data-status="documented">
+            <div class="journey-story-heading"><button type="button" class="journey-locate" data-place-id="decision" disabled aria-label="Show Cacica on the map">32</button><h3>Cacica<span>Romania</span></h3></div>
+            <a class="journey-story-link" href="blog/decision/index.html">Decision</a>
+            <p class="journey-story-date">Published <time datetime="2023-11-18">18/11/2023</time></p>
+            <p class="journey-certainty journey-certainty-documented">Place named in the entry</p>
+            <details class="journey-evidence">
+              <summary>Why this location?</summary>
+              <p>An explicit current stay beside the basilica in Cacica. Częstochowa elsewhere in the post is the original intended destination.</p>
+<blockquote>my destination: the Basilica of Cacica. I’m here now.</blockquote><a href="https://www.wikidata.org/wiki/Q15634267">Coordinate source</a>            </details>
+          </li>
+          <li class="journey-story" data-place-id="the-pilgrims-winter-trial" data-year="2024" data-status="documented">
+            <div class="journey-story-heading"><button type="button" class="journey-locate" data-place-id="the-pilgrims-winter-trial" disabled aria-label="Show Gura Haitii · Călimani Mountains on the map">33</button><h3>Gura Haitii · Călimani Mountains<span>Romania</span></h3></div>
+            <a class="journey-story-link" href="blog/the-pilgrims-winter-trial/index.html">Pilgrim&#39;s Winter Trial</a>
+            <p class="journey-story-date">Published <time datetime="2024-01-31">31/1/2024</time></p>
+            <p class="journey-certainty journey-certainty-documented">Place named in the entry</p>
+            <details class="journey-evidence">
+              <summary>Why this location?</summary>
+              <p>Gura Haitii is the named departure village for the winter mountain attempt from Vatra Dornei. The hut and abandoned pass are not precisely identified; the marker locates the village, not the snowbound campsite.</p>
+<blockquote>I spent the night in a guesthouse at the end of the village of Gura Haitii.</blockquote><a href="https://www.wikidata.org/wiki/Q12098494">Coordinate source</a>            </details>
+          </li>
+          <li class="journey-story" data-place-id="a-pilgrims-trials-and-kindness-along-the-way" data-year="2024" data-status="documented">
+            <div class="journey-story-heading"><button type="button" class="journey-locate" data-place-id="a-pilgrims-trials-and-kindness-along-the-way" disabled aria-label="Show Târgu Mureș · return passage on the map">34</button><h3>Târgu Mureș · return passage<span>Romania</span></h3></div>
+            <a class="journey-story-link" href="blog/a-pilgrims-trials-and-kindness-along-the-way/index.html">Kindness along the Way</a>
+            <p class="journey-story-date">Published <time datetime="2024-04-23">23/4/2024</time></p>
+            <p class="journey-certainty journey-certainty-documented">Place named in the entry</p>
+            <details class="journey-evidence">
+              <summary>Why this location?</summary>
+              <p>The parcel, dentist and sleeping-bag episodes are explicitly in Târgu Mureș on the return passage. Later writing is beside an unnamed stretch of river towards Lipova, not at the monastery.</p>
+<blockquote>The arrival at Targu Mureș takes place under pouring rain</blockquote><a href="https://www.wikidata.org/wiki/Q186349">Coordinate source</a>            </details>
+          </li>
+          <li class="journey-story" data-place-id="meeting-with-a-doe" data-year="2024" data-status="estimated">
+            <div class="journey-story-heading"><button type="button" class="journey-locate" data-place-id="meeting-with-a-doe" disabled aria-label="Show Western Romania · towards Serbia on the map">35</button><h3>Western Romania · towards Serbia<span>Romania</span></h3></div>
+            <a class="journey-story-link" href="blog/meeting-with-a-doe/index.html">Meeting with a Doe</a>
+            <p class="journey-story-date">Published <time datetime="2024-07-20">20/7/2024</time></p>
+            <p class="journey-certainty journey-certainty-estimated">Estimated from dates</p>
+            <details class="journey-evidence">
+              <summary>Why this location?</summary>
+              <p>No town or identifiable campsite is supplied. Estimated on the westbound recorded route between the return through Târgu Mureș and the Timișoara entry.</p>
+<blockquote>I’m nearing the Serbian-Romanian border.</blockquote><p>Estimated along the recorded route between Târgu Mureș · return passage (23/4/2024) and Timișoara (1/9/2024), using publication dates.</p>            </details>
+          </li>
+          <li class="journey-story" data-place-id="the-bird-and-the-journey-to-serbia" data-year="2024" data-status="documented">
+            <div class="journey-story-heading"><button type="button" class="journey-locate" data-place-id="the-bird-and-the-journey-to-serbia" disabled aria-label="Show Timișoara on the map">36</button><h3>Timișoara<span>Romania</span></h3></div>
             <a class="journey-story-link" href="blog/the-bird-and-the-journey-to-serbia/index.html">The Bird and the Journey to Serbia</a>
             <p class="journey-story-date">Published <time datetime="2024-09-01">1/9/2024</time></p>
+            <p class="journey-certainty journey-certainty-documented">Place named in the entry</p>
+            <details class="journey-evidence">
+              <summary>Why this location?</summary>
+              <p>Timișoara is a confirmed city stay. The later riverside bird rescue, border post and camp in Serbia are unnamed, so this marker does not claim to locate them.</p>
+<blockquote>Upon arriving in Timisoara, I headed straight to the guesthouse</blockquote><a href="https://www.wikidata.org/wiki/Q83404">Coordinate source</a>            </details>
           </li>
-          <li class="journey-story" data-place-id="sarajevo" data-year="2025">
-            <div class="journey-story-heading"><button type="button" class="journey-locate" data-place-id="sarajevo" disabled aria-label="Show Sarajevo on the map">8</button><h3>Sarajevo<span>Bosnia &amp; Herzegovina</span></h3></div>
+          <li class="journey-story" data-place-id="a-winter-odyssey-in-the-balkans" data-year="2025" data-status="documented">
+            <div class="journey-story-heading"><button type="button" class="journey-locate" data-place-id="a-winter-odyssey-in-the-balkans" disabled aria-label="Show Sarajevo · winter mountain journey on the map">37</button><h3>Sarajevo · winter mountain journey<span>Bosnia &amp; Herzegovina</span></h3></div>
             <a class="journey-story-link" href="blog/a-winter-odyssey-in-the-balkans/index.html">Crossing the Balkans</a>
             <p class="journey-story-date">Published <time datetime="2025-01-11">11/1/2025</time></p>
+            <p class="journey-certainty journey-certainty-documented">Place named in the entry</p>
+            <details class="journey-evidence">
+              <summary>Why this location?</summary>
+              <p>Sarajevo is the confirmed starting city of the winter story. The resort, guesthouse and wallet-loss town are unnamed. Mostar is explicitly still ahead, so it is not presented as an accomplished stop.</p>
+<blockquote>I had just left this lovely capital when the first snowstorm hit</blockquote><blockquote>between the capital of Sarajevo and the town of Mostar, where I am headed</blockquote><a href="https://www.wikidata.org/wiki/Q11194">Coordinate source</a>            </details>
           </li>
-          <li class="journey-story" data-place-id="mostar" data-year="2025">
-            <div class="journey-story-heading"><button type="button" class="journey-locate" data-place-id="mostar" disabled aria-label="Show Mostar on the map">9</button><h3>Mostar<span>Bosnia &amp; Herzegovina</span></h3></div>
-            <a class="journey-story-link" href="blog/a-winter-odyssey-in-the-balkans/index.html">Crossing the Balkans</a>
-            <p class="journey-story-date">Published <time datetime="2025-01-11">11/1/2025</time></p>
+          <li class="journey-story" data-place-id="five-years-walking-across-europe-15-countries-10000-km-5-winters-and-now-a-pause" data-year="2025" data-status="documented">
+            <div class="journey-story-heading"><button type="button" class="journey-locate" data-place-id="five-years-walking-across-europe-15-countries-10000-km-5-winters-and-now-a-pause" disabled aria-label="Show Dubrovnik · before the pause on the map">38</button><h3>Dubrovnik · before the pause<span>Croatia</span></h3></div>
+            <a class="journey-story-link" href="blog/five-years-walking-across-europe-15-countries-10000-km-5-winters-and-now-a-pause/index.html">Five years walking across Europe — 15 countries, 10,000 km, 5 winters. And now, a pause...</a>
+            <p class="journey-story-date">Published <time datetime="2025-08-28">28/8/2025</time></p>
+            <p class="journey-certainty journey-certainty-documented">Place named in the entry</p>
+            <details class="journey-evidence">
+              <summary>Why this location?</summary>
+              <p>Dubrovnik is an explicitly visited place in the final entry, beyond the end of the supplied route. The author then returned to France, but names no French town. No return route or French address is invented.</p>
+<blockquote>arriving in Dubrovnik, Croatia</blockquote><blockquote>I decided to come back to France. I just arrived yesterday</blockquote><a href="https://www.wikidata.org/wiki/Q1722">Coordinate source</a>            </details>
           </li>
         </ol>
-        <p class="journey-empty" id="journey-empty" hidden>No journal places for this year.</p>
+        <p class="journey-empty" id="journey-empty" hidden>No entries match these filters.</p>
       </aside>
     </div>
   </section>
   <div class="journey-notes prose">
-    <p>Journal markers show the approximate location of a town or place mentioned in a post, rather than an exact campsite or meeting spot. The date belongs to the published entry.</p>
-    <p>The recorded map ends in Bosnia and Herzegovina; the journal continues beyond it.</p>
+    <p>Every journal entry has a marker. Ochre marks a place identified in the text; blue marks an estimate. A named place may be one of several stops described in a post, rather than the place where it was written. No marker claims an exact campsite or wildlife encounter.</p>
+    <p>Where no place can be identified, positions are estimated along the recorded route in proportion to the time between neighbouring entries with a location reference. Regional clues are also used; those references remain blue, and their uncertainty carries into the estimates between them. Publication dates can lag behind travel, so these are approximate positions, not a daily GPS track.</p>
+    <p>The recorded line ends in Bosnia and Herzegovina. The last entry describes Dubrovnik and a return to France; its marker shows the confirmed Dubrovnik visit, without inventing a route or a French town.</p>
     <p><a href="assets/data/journey/route.geojson" download>Download the route (GeoJSON)</a> <span aria-hidden="true">·</span> <a href="assets/data/journey/source.kml" download>Original map data (KML)</a></p>
+    <p><a href="assets/data/journey/entry-locations.json" download>Location review for all 38 entries (JSON)</a></p>
     <noscript><p>The interactive map needs JavaScript. You can still read every linked story above and download the route.</p></noscript>
   </div>
   </main>

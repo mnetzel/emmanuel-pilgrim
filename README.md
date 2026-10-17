@@ -112,7 +112,9 @@ there is no Google Maps runtime, geocoding API, account, or API key.
 - `content/journey/source.json`: provenance, checksum and geometry inventory.
 - `content/journey/route.geojson`: all eight original polylines, unchanged.
 - `content/journey/locations.geojson`: all 2567 original points, including repeats.
-- `content/journey/map.json`: tile provider and editorial links to journal entries.
+- `content/journey/map.json`: tile provider and local data file names.
+- `content/journey/entry-locations.json`: one reviewed location per entry, with evidence, certainty, explanation and coordinate sources.
+- `scripts/journey_locations.py`: offline projection and date interpolation along the directed recorded route.
 - `templates/journey-map.html`: accessible page, story list and controls.
 - `static/css/journey-map.css`, `static/js/journey-map.js`: map-specific presentation and interactions.
 
@@ -123,25 +125,59 @@ changing the archived data. The source has no point timestamps; its point order
 must not be interpreted as a chronological GPS track. No route smoothing or
 new route calculation is performed by the importer.
 
-To add a journal marker, append a record to `content/journey/map.json`:
+All 38 entries have a marker: 22 identified places (ochre) and 16 estimates
+(blue, with a dashed border). Each marker and sidebar item explains its basis.
+Both year and location-type filters are available. The complete review is also
+downloadable from the page; original post text and photos are unchanged.
+
+To add a journal marker, add a review to `content/journey/entry-locations.json`:
 
 ```json
 {
-  "id": "a-unique-place-id",
+  "post": "existing-post-folder-name",
   "name": "Place name",
   "country": "Country",
-  "post": "existing-post-folder-name",
+  "status": "documented",
+  "method": "named_place",
+  "evidence": ["An exact excerpt from the entry naming the visited place."],
+  "explanation": "Why this place represents the entry, including any timing caveat.",
   "coordinates": [17.0325, 51.11],
   "coordinate_source": "https://www.wikidata.org/wiki/Q1799",
-  "location_precision": "town"
+  "location_precision": "town",
+  "reviewed_text_sha256": "SHA-256 of whitespace-normalized BeautifulSoup body text"
 }
 ```
 
-Coordinates are **longitude, latitude** (GeoJSON order). Use a verified location
-and keep its source. Town markers indicate the place discussed, not a precise
-campsite or encounter. Dates and titles come directly from the linked post;
-map dates are publication dates. The first photo accompanying that post is used
-in its popup. Rebuild and run the checks after editing.
+Coordinates are **longitude, latitude** (GeoJSON order). Preserve their source.
+`named_place` and `identified_place` are documented locations; the latter also
+records an `identification_source`. A named place may represent an earlier visit
+described in the entry, not the exact writing location or every event in it.
+Future destinations must not be treated as completed visits.
+
+For a regional inference, use `status: estimated`, `method: content_estimate`
+and reference coordinates with a source. The builder projects the reference onto
+the relevant section of the recorded line and keeps it blue. Explain uncertainty
+explicitly. For an entry without a usable place, use `method: date_interpolation`
+and omit coordinates: the builder computes a position between the neighbouring
+dated references, in proportion to elapsed days and cumulative distance along
+the original polyline. References can themselves be regional estimates; this is
+disclosed in the result. The first entry uses `route_start` rather than an
+unsupported backward extrapolation. A confirmed place beyond the supplied line
+(Dubrovnik) uses `on_recorded_route: false` and is not an interpolation anchor.
+
+Projection proceeds in chronological order, so return passages through Lithuania,
+Poland and Târgu Mureș are not confused with earlier visits. The line has no
+timestamps and is a coarse route, not a measured daily track: constant progress
+between publication dates is only a visual estimate. Internal route offsets are
+not claimed as actual kilometres walked. The recorded geometry is never changed.
+
+Dates and titles come from the posts. Popups use the first accompanying photograph;
+it is not claimed to depict the exact marker position. The review hash uses
+`sha256(' '.join(BeautifulSoup(body, 'html.parser').get_text(' ', strip=True).split()).encode()).hexdigest()`.
+The build requires one review per post and detects text changes that need a new
+location review. Rebuild and run the checks after editing. Generated coordinates,
+reference IDs, dates and interpolation fractions are inspectable in
+`docs/assets/data/journey/config.json`; do not edit that generated file.
 
 If the source map changes, replace `source.kml`, then run
 `python scripts/import_journey.py` followed by the normal build and checks.

@@ -26,15 +26,21 @@
 .map-key { display: inline-block; }
 .map-key-route { width: 20px; border-top: 3px solid var(--forest); }
 .map-key-story { width: 9px; height: 9px; background: var(--ochre); border-radius: 50%; }
+.map-key-estimated { width: 9px; height: 9px; background: #326e9b; border-radius: 50%; }
+.journey-legend { display: flex; flex-wrap: wrap; gap: 6px 18px; padding: 0 18px 16px; font: 12px/1.5 var(--font-navigation); color: var(--muted); }
+.journey-legend span { display: inline-flex; align-items: center; gap: 7px; }
 .journey-sidebar { border-left: 1px solid var(--line); max-height: 692px; overflow-y: auto; overscroll-behavior: contain; }
 .journey-sidebar-heading { padding: 20px; border-bottom: 1px solid var(--line); }
 .journey-sidebar h2 { font: 400 25px/1.25 var(--font-heading); margin: 0 0 18px; }
 .journey-filter-label { display: block; font: 12px/1.5 var(--font-navigation); color: var(--muted); margin-bottom: 5px; }
 .journey-sidebar select { width: 100%; padding: 9px 11px; background: var(--paper); color: var(--ink); border: 1px solid var(--line); border-radius: 3px; font: 14px var(--font-navigation); }
+.journey-sidebar select + label { margin-top: 12px; }
 .journey-story-list { padding: 0; margin: 0; list-style: none; }
 .journey-story { padding: 18px 20px; border-bottom: 1px solid var(--line); }
 .journey-story[hidden] { display: none; }
 .journey-story.is-selected { background: #eceee2; box-shadow: inset 3px 0 var(--ochre); }
+.journey-story[data-status="estimated"].is-selected { background: #eaf0f4; box-shadow: inset 3px 0 #326e9b; }
+.journey-story[data-status="estimated"] .journey-locate { color: #326e9b; border-color: #326e9b; background: #eef4f8; }
 .journey-story-heading { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
 .journey-story h3 { font: 400 21px/1.3 var(--font-heading); margin: 0; }
 .journey-story h3 span { display: block; font: 11px/1.6 var(--font-navigation); color: var(--muted); }
@@ -42,6 +48,14 @@
 .journey-locate:hover { background: #e1e5d5; }
 .journey-story-link { font-size: 17px; line-height: 1.45; display: block; text-decoration: underline; }
 .journey-story-date { font: 11px/1.5 var(--font-navigation); color: var(--muted); margin: 8px 0 0; }
+.journey-certainty { font: 11px/1.5 var(--font-navigation); margin: 6px 0 0; }
+.journey-certainty-documented { color: #7c581f; }
+.journey-certainty-estimated { color: #326e9b; }
+.journey-evidence { margin-top: 9px; font: 12px/1.6 var(--font-navigation); color: var(--muted); }
+.journey-evidence summary { cursor: pointer; color: var(--forest); }
+.journey-evidence p { margin: 9px 0; }
+.journey-evidence blockquote { border-left: 2px solid var(--line); margin: 9px 0; padding-left: 10px; font-style: italic; }
+.journey-evidence a { display: block; }
 .journey-empty { padding: 20px; font-size: 17px; }
 .journey-notes { max-width: 900px; margin: 28px auto 0; }
 .journey-notes p { color: var(--muted); font-size: 16px; line-height: 1.6; margin-bottom: 10px; }
@@ -50,12 +64,14 @@
 .journey-marker { background: transparent; border: 0; }
 .journey-marker span { display: grid; place-items: center; width: 29px; height: 29px; border: 2px solid #f6f3ec; border-radius: 50%; background: var(--ochre); color: white; box-shadow: 0 1px 5px #28352655; font: 700 12px var(--font-navigation); }
 .journey-marker-endpoint span { background: var(--forest); font-size: 10px; }
+.journey-marker-estimated span { background: #326e9b; border-style: dashed; }
 .journey-map .leaflet-popup-content-wrapper { border-radius: 4px; background: #faf8f3; color: var(--ink); }
 .journey-popup { font: 16px/1.5 var(--font-body); }
 .journey-popup h3 { font: 400 25px/1.25 var(--font-heading); margin: 0 0 8px; }
 .journey-popup img { width: 230px; max-height: 140px; object-fit: cover; border-radius: 2px; margin: 4px 0 10px; display: block; }
 .journey-popup a { color: var(--forest); text-decoration: underline; }
 .journey-popup .journey-popup-note { font: 11px/1.5 var(--font-navigation); color: var(--muted); margin: 10px 0 0; }
+.journey-popup .journey-certainty { margin: 0 0 8px; }
 .journey-map .leaflet-control-attribution { font: 10px/1.5 var(--font-navigation); }
 .journey-map .leaflet-control-attribution a { color: #3c543a; }
 .journey-explorer:fullscreen { background: var(--paper); display: flex; flex-direction: column; border: 0; }

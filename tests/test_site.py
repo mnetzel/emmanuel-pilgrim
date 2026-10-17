@@ -155,11 +155,13 @@ class SiteTests(unittest.TestCase):
             labels = [x.get_text(strip=True) for x in soup.select('.primary-navigation a')]
             self.assertEqual(labels, ['Welcome', 'Blog', 'Journey Map', 'About', 'Contact', 'FAQ'])
         page = self.pages['journey-map.html']
-        expected_places = json.loads((ROOT / 'content/journey/map.json').read_text(encoding='utf-8'))['places']
+        expected_places = json.loads((ROOT / 'content/journey/entry-locations.json').read_text(encoding='utf-8'))['entries']
         self.assertIsNotNone(page.select_one('#journey-map'))
         self.assertEqual(len(page.select('.journey-story')), len(expected_places))
         self.assertEqual(len(page.select('.journey-story-link')), len(expected_places))
         self.assertIsNotNone(page.select_one('noscript'))
+        self.assertEqual(len(page.select('.journey-evidence')), len(expected_places))
+        self.assertIsNotNone(page.select_one('#journey-certainty'))
         self.assertIsNotNone(page.select_one('.primary-navigation a[aria-current="page"][href="journey-map.html"]'))
 
     def test_journey_geometry_matches_archived_export(self):
@@ -182,10 +184,19 @@ class SiteTests(unittest.TestCase):
         self.assertEqual(data['tiles']['url'], 'https://tile.openstreetmap.org/{z}/{x}/{y}.png')
         self.assertIn('OpenStreetMap', data['tiles']['attribution'])
         self.assertEqual(len({x['id'] for x in data['places']}), len(data['places']))
+        all_posts = {p.parent.name for p in (ROOT / 'content/posts').glob('*/post.json')}
+        self.assertEqual({p['post'] for p in data['places']}, all_posts)
+        self.assertEqual(len(data['places']), len(all_posts))
         for place in data['places']:
             self.assertIn(place['post_path'], self.pages)
-            self.assertTrue(place['coordinate_source'].startswith('https://www.wikidata.org/wiki/'))
-            self.assertEqual(place['location_precision'], 'town')
+            self.assertTrue(place['evidence'] and place['explanation'] and place['method_label'])
+            if place['status'] == 'documented':
+                self.assertTrue(place['coordinate_source'].startswith('https://www.wikidata.org/wiki/'))
+                self.assertIn(place['location_precision'], ['town', 'landmark'])
+            else:
+                self.assertEqual(place['status'], 'estimated')
+                self.assertEqual(place['coordinate_source'], 'route.geojson')
+                self.assertIn(place['location_precision'], ['region', 'route_estimate', 'departure_area'])
             lon, lat = place['coordinates']
             self.assertTrue(-180 <= lon <= 180 and -90 <= lat <= 90)
 

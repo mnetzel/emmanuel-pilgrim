@@ -7,6 +7,7 @@
   const fitButton = document.querySelector('#journey-fit');
   const fullscreenButton = document.querySelector('#journey-fullscreen');
   const yearSelect = document.querySelector('#journey-year');
+  const certaintySelect = document.querySelector('#journey-certainty');
   const layers = document.querySelector('#journey-layers');
   const mainToggle = document.querySelector('#journey-main');
   const storiesToggle = document.querySelector('#journey-stories');
@@ -28,9 +29,9 @@
     return response.json();
   }
 
-  function markerIcon(label, endpoint = false) {
+  function markerIcon(label, endpoint = false, estimated = false) {
     // Labels are generated numbers or fixed S/E characters, never HTML from data.
-    return L.divIcon({ className: `journey-marker${endpoint ? ' journey-marker-endpoint' : ''}`,
+    return L.divIcon({ className: `journey-marker${endpoint ? ' journey-marker-endpoint' : ''}${estimated ? ' journey-marker-estimated' : ''}`,
       html: `<span>${label}</span>`, iconSize: [29, 29], iconAnchor: [14, 14], popupAnchor: [0, -13] });
   }
 
@@ -40,6 +41,10 @@
     const heading = document.createElement('h3');
     heading.textContent = place.name;
     content.append(heading);
+    const certainty = document.createElement('p');
+    certainty.className = `journey-certainty journey-certainty-${place.status}`;
+    certainty.textContent = place.method_label;
+    content.append(certainty);
     if (place.image) {
       const image = document.createElement('img');
       image.src = siteURL(place.image);
@@ -54,8 +59,24 @@
     content.append(link);
     const note = document.createElement('p');
     note.className = 'journey-popup-note';
-    note.textContent = `Published ${place.date_label}. Approximate location of the place mentioned in this entry.`;
+    note.textContent = `Published ${place.date_label}. ${place.explanation}`;
     content.append(note);
+    const evidence = document.createElement('details');
+    evidence.className = 'journey-evidence';
+    const summary = document.createElement('summary');
+    summary.textContent = 'Why this location?';
+    evidence.append(summary);
+    place.evidence.forEach(quote => {
+      const excerpt = document.createElement('blockquote');
+      excerpt.textContent = quote;
+      evidence.append(excerpt);
+    });
+    if (place.interpolation_note) {
+      const calculation = document.createElement('p');
+      calculation.textContent = place.interpolation_note;
+      evidence.append(calculation);
+    }
+    content.append(evidence);
     return content;
   }
 
@@ -91,17 +112,24 @@
     const items = new Map([...document.querySelectorAll('.journey-story')].map(item => [item.dataset.placeId, item]));
     config.places.forEach((place, index) => {
       const marker = L.marker([place.coordinates[1], place.coordinates[0]], {
-        icon: markerIcon(index + 1), title: `${place.name} · ${place.post_title}`, alt: `Journal place: ${place.name}`, riseOnHover: true
-      }).bindPopup(() => popup(place), { maxWidth: 265 });
-      marker.on('popupopen', () => {
+        icon: markerIcon(index + 1, false, place.status === 'estimated'),
+        title: `${place.name} · ${place.method_label} · ${place.post_title}`,
+        alt: `${place.method_label}: ${place.name}`, riseOnHover: true
+      }).bindPopup(() => popup(place), { maxWidth: 265, maxHeight: 300, keepInView: true });
+      marker.on('popupopen', event => {
         items.forEach(item => item.classList.remove('is-selected'));
         items.get(place.id)?.classList.add('is-selected');
+        const element = event.popup.getElement();
+        element.querySelector('img')?.addEventListener('load', () => event.popup.update(), { once: true });
+        element.querySelector('details')?.addEventListener('toggle', () => event.popup.update());
       });
       marker.on('popupclose', () => items.get(place.id)?.classList.remove('is-selected'));
       markers.set(place.id, marker);
     });
 
-    function fit() { const padding = map.getSize().x < 450 ? 14 : 32; map.fitBounds(routeLine.getBounds(), { padding: [padding, padding], animate: false }); }
+    const overviewBounds = routeLine.getBounds();
+    config.places.forEach(place => overviewBounds.extend([place.coordinates[1], place.coordinates[0]]));
+    function fit() { const padding = map.getSize().x < 450 ? 14 : 32; map.fitBounds(overviewBounds, { padding: [padding, padding], animate: false }); }
     fit();
     fitButton.disabled = false;
     fitButton.addEventListener('click', fit);
@@ -112,13 +140,19 @@
     function filter() {
       storyLayer.clearLayers();
       let count = 0;
+      let estimated = 0;
       config.places.forEach(place => {
-        const visible = yearSelect.value === 'all' || place.date.startsWith(yearSelect.value);
+        const visible = (yearSelect.value === 'all' || place.date.startsWith(yearSelect.value)) &&
+          (certaintySelect.value === 'all' || place.status === certaintySelect.value);
         items.get(place.id).hidden = !visible;
-        if (visible) { markers.get(place.id).addTo(storyLayer); count += 1; }
+        if (visible) {
+          markers.get(place.id).addTo(storyLayer);
+          count += 1;
+          if (place.status === 'estimated') estimated += 1;
+        }
       });
       document.querySelector('#journey-empty').hidden = count !== 0;
-      say(`${count} journal places shown.`);
+      say(`${count} entries shown · ${count - estimated} identified places · ${estimated} estimated positions.`);
       map.closePopup();
     }
     [...new Set(config.places.map(place => place.date.slice(0, 4)))].sort().forEach(year => {
@@ -126,6 +160,8 @@
     });
     yearSelect.disabled = false;
     yearSelect.addEventListener('change', filter);
+    certaintySelect.disabled = false;
+    certaintySelect.addEventListener('change', filter);
     filter();
     document.querySelectorAll('.journey-locate').forEach(button => {
       button.disabled = false;
@@ -133,7 +169,8 @@
         const marker = markers.get(button.dataset.placeId);
         storiesToggle.checked = true;
         if (!map.hasLayer(storyLayer)) storyLayer.addTo(map);
-        map.setView(marker.getLatLng(), 10, { animate: !reducedMotion });
+        const place = config.places.find(place => place.id === button.dataset.placeId);
+        map.setView(marker.getLatLng(), place.status === 'estimated' ? 8 : 10, { animate: false });
         marker.openPopup();
         if (window.matchMedia('(max-width: 650px)').matches) document.querySelector('#journey-map').scrollIntoView({ behavior: reducedMotion ? 'instant' : 'smooth', block: 'center' });
       });

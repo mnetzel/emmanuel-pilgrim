@@ -13,6 +13,7 @@ from xml.sax.saxutils import escape as xml_escape
 
 from jinja2 import Environment, FileSystemLoader, StrictUndefined, pass_context, select_autoescape
 from markupsafe import Markup
+from journey_locations import locate_entries
 
 ROOT = Path(__file__).resolve().parents[1]
 CONTENT = ROOT / 'content'
@@ -44,8 +45,7 @@ def build():
         post = read_json(meta)
         post['body'] = meta.with_name('body.html').read_text(encoding='utf-8')
         posts[post['slug']] = post
-    journey = read_json(CONTENT / 'journey/map.json')
-    journey['places'] = [dict(place) for place in journey['places']]
+    journey = locate_entries(CONTENT / 'journey', posts)
     for place in journey['places']:
         post = posts[place['post']]
         place.update({'post_path': post['path'], 'post_title': post['title'], 'date': post['date'], 'date_label': post['date_label']})
@@ -96,7 +96,7 @@ def build():
     shutil.copytree(ROOT / 'static', OUTPUT / 'assets')
     journey_output = OUTPUT / 'assets/data/journey'
     journey_output.mkdir(parents=True, exist_ok=True)
-    for name in ['route.geojson', 'locations.geojson', 'source.kml']:
+    for name in ['route.geojson', 'locations.geojson', 'source.kml', 'entry-locations.json']:
         shutil.copyfile(CONTENT / 'journey' / name, journey_output / name)
     (journey_output / 'config.json').write_text(json.dumps(journey, ensure_ascii=False, separators=(',', ':')) + '\n', encoding='utf-8')
     for route in routes:

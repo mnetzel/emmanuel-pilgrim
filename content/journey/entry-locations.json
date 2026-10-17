@@ -1,0 +1,710 @@
+{
+  "reviewed_at": "2026-10-18",
+  "description": "Every published entry reviewed individually. A marker identifies a place described in the entry, not a timestamped GPS fix. Blue positions remain estimates, including regional inferences.",
+  "entries": [
+    {
+      "post": "test-post",
+      "name": "Paris region · departure",
+      "country": "France",
+      "status": "estimated",
+      "method": "route_start",
+      "evidence": [
+        "I started my pilgrimage trip 2 days ago."
+      ],
+      "explanation": "No village is named. Shown at the beginning of the recorded route as an approximate departure area; the campsite cannot be located.",
+      "reviewed_text_sha256": "a09deada7813b916ff706a5f9f62301e7bef9a568a683831009679d7d4319dbf"
+    },
+    {
+      "post": "the-bizarre-scene",
+      "name": "Hénonville · Bois Joli campsite",
+      "country": "France",
+      "status": "documented",
+      "method": "identified_place",
+      "evidence": [
+        "The 'Bois Joli' camping",
+        "located in the French Vexin",
+        "not very far from Méru"
+      ],
+      "explanation": "The campsite name, French Vexin and proximity to Méru identify Hénonville. The marker uses the village centre, not the exact pitch.",
+      "coordinates": [
+        2.0530555555556,
+        49.206944444444
+      ],
+      "coordinate_source": "https://www.wikidata.org/wiki/Q1346675",
+      "location_precision": "town",
+      "identification_source": "https://oise.media.tourinsoft.eu/upload/topoguide-boucle-cyclo-des-2-Vexin-au-Pays-de-Nacre.pdf",
+      "reviewed_text_sha256": "37c795959300252e09dc330fd09040e566b67849063a032fbc93dc7eb3c5c605"
+    },
+    {
+      "post": "october-16th-2020",
+      "name": "Château-Porcien",
+      "country": "France",
+      "status": "documented",
+      "method": "named_place",
+      "evidence": [
+        "staying in a communal pilgrims' house in Château-Porcien"
+      ],
+      "explanation": "The opening sentence explicitly places the author in Château-Porcien.",
+      "coordinates": [
+        4.2458333333333,
+        49.529444444444
+      ],
+      "coordinate_source": "https://www.wikidata.org/wiki/Q967390",
+      "location_precision": "town",
+      "reviewed_text_sha256": "5d6c3e4a75ca09a03dd56164149f9c3fa5b3babacdae2a88ffe879237c95b3a9"
+    },
+    {
+      "post": "mushrooms",
+      "name": "Orval Abbey",
+      "country": "Belgium",
+      "status": "documented",
+      "method": "named_place",
+      "evidence": [
+        "Today, I’m staying in Orval Abbey."
+      ],
+      "explanation": "The author explicitly names his overnight stay at Orval Abbey.",
+      "coordinates": [
+        5.3488888888889,
+        49.639722222222
+      ],
+      "coordinate_source": "https://www.wikidata.org/wiki/Q334099",
+      "location_precision": "landmark",
+      "reviewed_text_sha256": "ad58fc59888429f99a56f3096777ce8e5b93d1a35241546b0218b934e29a13b6"
+    },
+    {
+      "post": "november-27th-2020",
+      "name": "Frankfurt area",
+      "country": "Germany",
+      "status": "estimated",
+      "method": "content_estimate",
+      "evidence": [
+        "a little past Frankfurt, heading south"
+      ],
+      "explanation": "The text places him just beyond Frankfurt but gives no village. The nearby part of the recorded route is used as a regional estimate; the direction in the prose is not precise enough to locate the campsite.",
+      "coordinates": [
+        8.682222222222222,
+        50.11055555555556
+      ],
+      "coordinate_source": "https://www.wikidata.org/wiki/Q1794",
+      "location_precision": "town",
+      "other_places": [
+        "Luxembourg (earlier stage)"
+      ],
+      "reviewed_text_sha256": "d4a8f059e805404f0934dbf80e17fe81f666f4926afb674a9a49c47dede5b63f"
+    },
+    {
+      "post": "fulda",
+      "name": "Fulda",
+      "country": "Germany",
+      "status": "documented",
+      "method": "named_place",
+      "evidence": [
+        "I first discovered the beautiful city of Fulda"
+      ],
+      "explanation": "Fulda is explicitly visited in this entry; the later host family is not located precisely.",
+      "coordinates": [
+        9.6775,
+        50.552777777778
+      ],
+      "coordinate_source": "https://www.wikidata.org/wiki/Q3963",
+      "location_precision": "town",
+      "reviewed_text_sha256": "f3e6c96bdf69ddc55c72991ba5603a0e571bd8f13dbc8ffb388cec04e6f7c1e2"
+    },
+    {
+      "post": "the-alpha-point",
+      "name": "Point Alpha · Geisa / Rasdorf",
+      "country": "Germany",
+      "status": "documented",
+      "method": "identified_place",
+      "evidence": [
+        "The Alpha Point!",
+        "I’ve just entered the former East Germany."
+      ],
+      "explanation": "The named memorial and description of the former border identify Point Alpha between Geisa and Rasdorf.",
+      "coordinates": [
+        9.93185556,
+        50.72393056
+      ],
+      "coordinate_source": "https://www.wikidata.org/wiki/Q318112",
+      "location_precision": "landmark",
+      "identification_source": "https://www.pointalpha.com/kontakt/",
+      "reviewed_text_sha256": "b8dbe5d8a304f7507e3b1a73ba4bd3ed5057e54adebf4ef38c35401424f0a6f6"
+    },
+    {
+      "post": "germany-2",
+      "name": "Buchenwald · near Weimar",
+      "country": "Germany",
+      "status": "documented",
+      "method": "named_place",
+      "evidence": [
+        "Yesterday, as a sort of duty to humanity, I made a detour to the former Nazi concentration camp of Buchenwald"
+      ],
+      "explanation": "Buchenwald is a confirmed visit described as yesterday. Leipzig also appears in a recollection; the marker locates the named visit, not every event in the post.",
+      "coordinates": [
+        11.248999,
+        51.021198
+      ],
+      "coordinate_source": "https://www.wikidata.org/wiki/Q152802",
+      "location_precision": "landmark",
+      "other_places": [
+        "Leipzig (another encounter)"
+      ],
+      "reviewed_text_sha256": "8b6f5843c713502ee3564063dab5a75eb2538225e82b327c4a201c5968346ebe"
+    },
+    {
+      "post": "signal",
+      "name": "Görlitz · Polish border",
+      "country": "Germany / Poland",
+      "status": "documented",
+      "method": "named_place",
+      "evidence": [
+        "the police at the border in Görlitz",
+        "Of course, I was allowed to cross the border, and so I did."
+      ],
+      "explanation": "The entry recounts crossing into Poland at Görlitz. It is a border-stage marker; he had already been in Poland for a week when writing.",
+      "coordinates": [
+        14.991018,
+        51.1563185
+      ],
+      "coordinate_source": "https://www.wikidata.org/wiki/Q4077",
+      "location_precision": "town",
+      "other_places": [
+        "Częstochowa (intended destination)"
+      ],
+      "reviewed_text_sha256": "4077c21c1364dff5ffd000a931b1f40aa5c629479a21b7fc323d946292412f0b"
+    },
+    {
+      "post": "winter-in-poland",
+      "name": "Wrocław",
+      "country": "Poland",
+      "status": "documented",
+      "method": "named_place",
+      "evidence": [
+        "a beautiful city, Wrocław",
+        "It’s been four days since I got here."
+      ],
+      "explanation": "The body explicitly describes a four-day stay in Wrocław. The title mentions Częstochowa and Warsaw but does not locate the narrated stay there.",
+      "coordinates": [
+        17.0325,
+        51.11
+      ],
+      "coordinate_source": "https://www.wikidata.org/wiki/Q1799",
+      "location_precision": "town",
+      "reviewed_text_sha256": "2de1855e636bcb78f891cbcde06ba7d2d653b8a1f168013d58da43640fbd2bf2"
+    },
+    {
+      "post": "meeting-with-a-wolf",
+      "name": "Eastern Poland · forest encounter",
+      "country": "Poland",
+      "status": "estimated",
+      "method": "date_interpolation",
+      "evidence": [
+        "Today I saw a wolf!",
+        "The first was in East Germany",
+        "this huge forest"
+      ],
+      "explanation": "The present encounter is in an unnamed forest. East Germany refers to an earlier wolf sighting. Estimated by publication date between Wrocław and the approximate Biebrza stage.",
+      "reviewed_text_sha256": "f93d6a364e8793982333767d6948b22ab87e4f475cf2f778a99225346635c0cf"
+    },
+    {
+      "post": "hippie-family",
+      "name": "Biebrza valley · host family",
+      "country": "Poland",
+      "status": "estimated",
+      "method": "content_estimate",
+      "evidence": [
+        "a “hippie family” in northern Poland",
+        "The mother is a tour guide in the national park!",
+        "Biebrzańska Wiedźma"
+      ],
+      "explanation": "The named guide identifies the Biebrza area. In a May 2021 interview she mentions moving from Kulesze to Stare Bajki, so neither village can be asserted as this particular stay. The route near Kulesze is only a regional estimate.",
+      "coordinates": [
+        22.665,
+        53.41138889
+      ],
+      "coordinate_source": "https://www.wikidata.org/wiki/Q5754741",
+      "location_precision": "town",
+      "identification_source": "https://napedzanimarzeniami.pl/podcast/wiedzma/",
+      "reviewed_text_sha256": "55117798314724cb12965922818a7bddaff03558c1354a9ed63c6bfea92cf1d6"
+    },
+    {
+      "post": "arrival-in-lithuania",
+      "name": "Southern Lithuania",
+      "country": "Lithuania",
+      "status": "estimated",
+      "method": "date_interpolation",
+      "evidence": [
+        "It’s been a week now since I arrived in Lithuania",
+        "vast forests, crystal-clear lakes, and charming little rivers"
+      ],
+      "explanation": "The country and border arrival are explicit, but the hosts and villages are not located. Estimated along the route from the Biebrza stage towards Vilnius.",
+      "reviewed_text_sha256": "f2f80a5a97ef19cb784e5e9654cf73e17dc9d1bee960f21ba0d9fe24abf2ee86"
+    },
+    {
+      "post": "vilnius",
+      "name": "Vilnius",
+      "country": "Lithuania",
+      "status": "documented",
+      "method": "named_place",
+      "evidence": [
+        "I should have told you about Vilnius, my second destination.",
+        "It's already been a week since I left the place"
+      ],
+      "explanation": "Vilnius and the Gate of Dawn are confirmed visits. Publication came a week after departure; later encounters north of the city have no secure village identification.",
+      "coordinates": [
+        25.28,
+        54.687222222222225
+      ],
+      "coordinate_source": "https://www.wikidata.org/wiki/Q216",
+      "location_precision": "town",
+      "other_places": [
+        "Gate of Dawn (visited)",
+        "Aglona (next destination)"
+      ],
+      "reviewed_text_sha256": "567c239e0965845f77d515c4e2cf3b12cb5289b31210c744f61ce1c36358cf01"
+    },
+    {
+      "post": "meeting-with-a-moose",
+      "name": "Between Vilnius and Aglona",
+      "country": "Lithuania",
+      "status": "estimated",
+      "method": "date_interpolation",
+      "evidence": [
+        "I saw my first wild moose—a female!"
+      ],
+      "explanation": "The short wildlife entry names no town. Estimated along the northbound route between the Vilnius and Aglona publication dates.",
+      "reviewed_text_sha256": "08bcc5deaafd2c1aa9ce5efaf0fb41088a376d9b83b749a531f98a85b564a2c8"
+    },
+    {
+      "post": "aglona",
+      "name": "Aglona",
+      "country": "Latvia",
+      "status": "documented",
+      "method": "named_place",
+      "evidence": [
+        "The festival here in Aglona has ended."
+      ],
+      "explanation": "The author explicitly stays at the Aglona festival and leaves after lunch. Šiluva and the Hill of Crosses are future destinations in this entry.",
+      "coordinates": [
+        27.016666666667,
+        56.123333333333
+      ],
+      "coordinate_source": "https://www.wikidata.org/wiki/Q372999",
+      "location_precision": "town",
+      "other_places": [
+        "Šiluva (next destination)",
+        "Hill of Crosses (planned visit)"
+      ],
+      "reviewed_text_sha256": "7f6f22fd6d0cb4fca4485f35f3d43e5d9b66001a6996266e9237de58808890d8"
+    },
+    {
+      "post": "ask-bilbo",
+      "name": "Leaving Aglona",
+      "country": "Latvia",
+      "status": "estimated",
+      "method": "date_interpolation",
+      "evidence": [
+        "the last days since I left Aglona have been wonderful."
+      ],
+      "explanation": "The narrative follows departure from Aglona, but the shop, lake and hosts are unnamed. Estimated on the returning route towards Lithuania.",
+      "reviewed_text_sha256": "7ade5e4b42b16e43f724d46ea2d62abe3be7e8de5ba5499807641ec8b00755a5"
+    },
+    {
+      "post": "krincinas",
+      "name": "Hill of Crosses · near Šiauliai",
+      "country": "Lithuania",
+      "status": "documented",
+      "method": "named_place",
+      "evidence": [
+        "yesterday I passed through the Hill of Crosses"
+      ],
+      "explanation": "The most recent named visit is the Hill of Crosses. Earlier sections also describe Krinčinas and Pasvalys; Šiluva remains ahead, so it is not marked as a completed visit here.",
+      "coordinates": [
+        23.416667,
+        56.015278
+      ],
+      "coordinate_source": "https://www.wikidata.org/wiki/Q223726",
+      "location_precision": "landmark",
+      "other_places": [
+        "Krinčinas (visited)",
+        "Pasvalys (visited)",
+        "Šiluva (next destination)"
+      ],
+      "reviewed_text_sha256": "b57d58f9770f6bb36571d8fec6a8ef09ac780ec1cb0f6b429d8b1871c9e80def"
+    },
+    {
+      "post": "goldap-and-andrzej",
+      "name": "Gołdap",
+      "country": "Poland",
+      "status": "documented",
+      "method": "named_place",
+      "evidence": [
+        "I am now in Poland, in the small town of Gołdap, from where I am writing to you."
+      ],
+      "explanation": "The author explicitly gives Gołdap as the place of writing, after Šiluva and Kaunas and before Gietrzwałd.",
+      "coordinates": [
+        22.30362,
+        54.30631
+      ],
+      "coordinate_source": "https://www.wikidata.org/wiki/Q947414",
+      "location_precision": "town",
+      "other_places": [
+        "Šiluva (visited)",
+        "Kaunas (visited)",
+        "Święta Lipka (onward route)",
+        "Gietrzwałd (next destination)"
+      ],
+      "reviewed_text_sha256": "475cf6eb86609aa520ed1deaa3ade282aaa4ea0ae43cc58d68f17babba67269b"
+    },
+    {
+      "post": "spine",
+      "name": "Warmia–Masuria · winter trail",
+      "country": "Poland",
+      "status": "estimated",
+      "method": "date_interpolation",
+      "evidence": [
+        "there’s ice under the snow"
+      ],
+      "explanation": "The entry describes ice, snow and the walking stick without naming a settlement. Estimated along the route between Gołdap and Gietrzwałd.",
+      "reviewed_text_sha256": "9be620f543473d7f906f80be12d0277068e6f925e56b75d0d2e8c2bfeb79f6ad"
+    },
+    {
+      "post": "gietrzwald",
+      "name": "Gietrzwałd",
+      "country": "Poland",
+      "status": "documented",
+      "method": "named_place",
+      "evidence": [
+        "only arrived in Gietrzwałd on the 25th"
+      ],
+      "explanation": "A confirmed Christmas Day visit to Gietrzwałd. The entry was published in January and later describes an unnamed village; publication is not an exact travel timestamp.",
+      "coordinates": [
+        20.235555555556,
+        53.7475
+      ],
+      "coordinate_source": "https://www.wikidata.org/wiki/Q994681",
+      "location_precision": "town",
+      "other_places": [
+        "Święta Lipka (earlier visit)",
+        "Olsztyn (title and Copernicus castle context)"
+      ],
+      "reviewed_text_sha256": "1041a6ce7ddc1c4cc5f55ac3965296debab8b8b86b74682387092c0e0647d02e"
+    },
+    {
+      "post": "meetings",
+      "name": "Toruń",
+      "country": "Poland",
+      "status": "documented",
+      "method": "named_place",
+      "evidence": [
+        "This morning, as I was leaving the magnificent medieval town of Toruń"
+      ],
+      "explanation": "The long collection ends with an explicit departure from Toruń and an encounter at its river bridge. Earlier lakes, canal-side villages and Lipye/Lipy are not securely geolocated.",
+      "coordinates": [
+        18.616666666667,
+        53.016666666667
+      ],
+      "coordinate_source": "https://www.wikidata.org/wiki/Q47554",
+      "location_precision": "town",
+      "other_places": [
+        "Lipy / Lipye (earlier visit; spelling ambiguous)",
+        "Polish lakes and canal (unnamed)",
+        "Czech Republic (title; no precise town established)"
+      ],
+      "reviewed_text_sha256": "aaef5c93ba2773fece38cfba2f512f04641de64d6e7aaf52c9f7a1f340dc7365"
+    },
+    {
+      "post": "slovakia",
+      "name": "High Tatras foothills",
+      "country": "Slovakia",
+      "status": "estimated",
+      "method": "content_estimate",
+      "evidence": [
+        "Just below the High Tatras"
+      ],
+      "explanation": "Only the mountain region is specified. Shown on the recorded route south of the High Tatras as a regional estimate, without inventing the lake or village.",
+      "coordinates": [
+        20.133333333333,
+        49.166666666667
+      ],
+      "coordinate_source": "https://www.wikidata.org/wiki/Q690323",
+      "location_precision": "town",
+      "reviewed_text_sha256": "f999b92d37906e31c54639374339a72f4e5da1a954d4d8c5e03885f3493a5cac"
+    },
+    {
+      "post": "levoca",
+      "name": "Levoča",
+      "country": "Slovakia",
+      "status": "documented",
+      "method": "named_place",
+      "evidence": [
+        "Levoca, Slovakia 1 December 2022",
+        "I am in a monastery in the center of Levoca"
+      ],
+      "explanation": "The author explicitly gives the town, date and stay in its centre.",
+      "coordinates": [
+        20.590555555556,
+        49.022777777778
+      ],
+      "coordinate_source": "https://www.wikidata.org/wiki/Q242478",
+      "location_precision": "town",
+      "other_places": [
+        "Mariánska hora (planned visit)"
+      ],
+      "reviewed_text_sha256": "cc0952280fd8e8a323be004ea97686698ee8033abe118d2bb88ccf7aa2e71ddc"
+    },
+    {
+      "post": "tent",
+      "name": "Klokočov",
+      "country": "Slovakia",
+      "status": "documented",
+      "method": "named_place",
+      "evidence": [
+        "and finally Klokočov.",
+        "Now, I’m heading to Esztergom"
+      ],
+      "explanation": "Klokočov is the last completed named Slovak stop. Esztergom is still 330 km ahead; the entry does not establish arrival there.",
+      "coordinates": [
+        22.02888889,
+        48.81166667
+      ],
+      "coordinate_source": "https://www.wikidata.org/wiki/Q1032582",
+      "location_precision": "town",
+      "other_places": [
+        "Šaštín-Stráže",
+        "Skalka / Trenčín",
+        "Butkov",
+        "Levoča",
+        "Litmanová",
+        "Ľutina",
+        "Gaboltov",
+        "Święta Góra Jawor",
+        "Esztergom (future destination)"
+      ],
+      "reviewed_text_sha256": "37b31c6d5d56dfe911437a0fd8c1697d8d1a79b82f9cac58ebbff6e720cadf31"
+    },
+    {
+      "post": "happiness",
+      "name": "Hungary · pilgrim trail",
+      "country": "Hungary",
+      "status": "estimated",
+      "method": "date_interpolation",
+      "evidence": [
+        "in Hungary, where I am"
+      ],
+      "explanation": "The country is explicit, but the pilgrim inn and villages are unnamed. Estimated by date between the last Slovak stop and the approximate first Târgu Mureș stage.",
+      "reviewed_text_sha256": "9a525134d0f49a16412f2261a0bcef75900d2169808c3232a8c543f1dd7bd038"
+    },
+    {
+      "post": "romania",
+      "name": "Northwestern Romania",
+      "country": "Romania",
+      "status": "estimated",
+      "method": "date_interpolation",
+      "evidence": [
+        "I entered Romania today.",
+        "Now that I’ve been walking here for a few weeks"
+      ],
+      "explanation": "The post combines the Hungary–Romania border crossing with later Romanian encounters over several weeks. No town or border post is named. Estimated by date on the first Romanian section of the recorded route.",
+      "reviewed_text_sha256": "5f4d54279414db9d528df0bc8ed1a049471499b434464bfd77daff1be42f97ae"
+    },
+    {
+      "post": "meeting-with-a-bear",
+      "name": "Târgu Mureș area · first passage",
+      "country": "Romania",
+      "status": "estimated",
+      "method": "content_estimate",
+      "evidence": [
+        "the headlamp given to me by a firefighter from Târgu Mureș"
+      ],
+      "explanation": "This establishes an earlier Târgu Mureș connection, not the bear encounter or flooded campsite. An approximate position on the first passage near the city provides a regional reference; the actual forest cannot be identified.",
+      "coordinates": [
+        24.559722222222,
+        46.549722222222
+      ],
+      "coordinate_source": "https://www.wikidata.org/wiki/Q186349",
+      "location_precision": "town",
+      "reviewed_text_sha256": "ca5c932118ae40a7d051a267e71f9ce1a52f0bbe2d7d7ac559978cd939bf850e"
+    },
+    {
+      "post": "transylvania",
+      "name": "Transylvania · village stop",
+      "country": "Romania",
+      "status": "estimated",
+      "method": "date_interpolation",
+      "evidence": [
+        "That was a little hello from Transylvania."
+      ],
+      "explanation": "The village, stream and guesthouse are unnamed. Estimated between the approximate first Târgu Mureș passage and the confirmed Cacica visit.",
+      "reviewed_text_sha256": "fc65c9693d7b024efd59896f98040ae579249ec4e9013c0dcf8f3fef8aedb236"
+    },
+    {
+      "post": "feast-with-gabriel",
+      "name": "Transylvania · Carpathian foothills",
+      "country": "Romania",
+      "status": "estimated",
+      "method": "date_interpolation",
+      "evidence": [
+        "sub-Carpathian Transylvania!",
+        "a small chalet in a stunning corner of nature in the middle of the Carpathian Mountains"
+      ],
+      "explanation": "No village is named. Tibor, Margret, Gabriel, the spring and chapel do not securely identify a settlement. Estimated on the recorded route between the first Târgu Mureș passage and Cacica.",
+      "reviewed_text_sha256": "f3448d1a12d426a88271c194798c1106477d9c1cd4bd8a4129766ae31b74eb8c"
+    },
+    {
+      "post": "accident",
+      "name": "Romania · forest campsite",
+      "country": "Romania",
+      "status": "estimated",
+      "method": "date_interpolation",
+      "evidence": [
+        "I’m camped next to a water source."
+      ],
+      "explanation": "The bear-spray accident takes place at an unnamed spring-side campsite. The Sahara, Normandy and earlier travels are comparisons, not locations of this incident. Estimated by date on the Romanian route.",
+      "reviewed_text_sha256": "250e4597a82ea582d6fc1d0e5537b1f3831f2dd4ae9be358e5935d0c8fced898"
+    },
+    {
+      "post": "decision",
+      "name": "Cacica",
+      "country": "Romania",
+      "status": "documented",
+      "method": "named_place",
+      "evidence": [
+        "my destination: the Basilica of Cacica. I’m here now."
+      ],
+      "explanation": "An explicit current stay beside the basilica in Cacica. Częstochowa elsewhere in the post is the original intended destination.",
+      "coordinates": [
+        25.911803,
+        47.63601
+      ],
+      "coordinate_source": "https://www.wikidata.org/wiki/Q15634267",
+      "location_precision": "town",
+      "reviewed_text_sha256": "0c86ca895f66d89552348cb94b6a1178446ba42549e04a569b1de666324aa430"
+    },
+    {
+      "post": "the-pilgrims-winter-trial",
+      "name": "Gura Haitii · Călimani Mountains",
+      "country": "Romania",
+      "status": "documented",
+      "method": "named_place",
+      "evidence": [
+        "I spent the night in a guesthouse at the end of the village of Gura Haitii."
+      ],
+      "explanation": "Gura Haitii is the named departure village for the winter mountain attempt from Vatra Dornei. The hut and abandoned pass are not precisely identified; the marker locates the village, not the snowbound campsite.",
+      "coordinates": [
+        25.263759,
+        47.197258
+      ],
+      "coordinate_source": "https://www.wikidata.org/wiki/Q12098494",
+      "location_precision": "town",
+      "other_places": [
+        "Vatra Dornei (approach)",
+        "Unnamed mountain hut and pass"
+      ],
+      "reviewed_text_sha256": "c5a3d7b2235b3e28b835f51299b278567c075598dccc394344c7b55568e3b8dd"
+    },
+    {
+      "post": "a-pilgrims-trials-and-kindness-along-the-way",
+      "name": "Târgu Mureș · return passage",
+      "country": "Romania",
+      "status": "documented",
+      "method": "named_place",
+      "evidence": [
+        "The arrival at Targu Mureș takes place under pouring rain"
+      ],
+      "explanation": "The parcel, dentist and sleeping-bag episodes are explicitly in Târgu Mureș on the return passage. Later writing is beside an unnamed stretch of river towards Lipova, not at the monastery.",
+      "coordinates": [
+        24.559722222222,
+        46.549722222222
+      ],
+      "coordinate_source": "https://www.wikidata.org/wiki/Q186349",
+      "location_precision": "town",
+      "other_places": [
+        "Lipova Monastery (future destination)"
+      ],
+      "reviewed_text_sha256": "bc4e34446e41450fec2a489759bd642f275cba0cbceda2fe6ac1a9022c2636a4"
+    },
+    {
+      "post": "meeting-with-a-doe",
+      "name": "Western Romania · towards Serbia",
+      "country": "Romania",
+      "status": "estimated",
+      "method": "date_interpolation",
+      "evidence": [
+        "I’m nearing the Serbian-Romanian border."
+      ],
+      "explanation": "No town or identifiable campsite is supplied. Estimated on the westbound recorded route between the return through Târgu Mureș and the Timișoara entry.",
+      "reviewed_text_sha256": "41dcbb598fb039cac98b11e81781d2f931c85cf7dfdbe5e36a3983818c0d7c3a"
+    },
+    {
+      "post": "the-bird-and-the-journey-to-serbia",
+      "name": "Timișoara",
+      "country": "Romania",
+      "status": "documented",
+      "method": "named_place",
+      "evidence": [
+        "Upon arriving in Timisoara, I headed straight to the guesthouse"
+      ],
+      "explanation": "Timișoara is a confirmed city stay. The later riverside bird rescue, border post and camp in Serbia are unnamed, so this marker does not claim to locate them.",
+      "coordinates": [
+        21.23,
+        45.759722222222
+      ],
+      "coordinate_source": "https://www.wikidata.org/wiki/Q83404",
+      "location_precision": "town",
+      "other_places": [
+        "Unnamed riverside between Timișoara and the Serbian border",
+        "Unnamed Serbian border village and campsite"
+      ],
+      "reviewed_text_sha256": "d02cc0343637632ad855caadd2491d9fc3daf1291828d2a747d56f0e82e6fbaf"
+    },
+    {
+      "post": "a-winter-odyssey-in-the-balkans",
+      "name": "Sarajevo · winter mountain journey",
+      "country": "Bosnia & Herzegovina",
+      "status": "documented",
+      "method": "named_place",
+      "evidence": [
+        "I had just left this lovely capital when the first snowstorm hit",
+        "between the capital of Sarajevo and the town of Mostar, where I am headed"
+      ],
+      "explanation": "Sarajevo is the confirmed starting city of the winter story. The resort, guesthouse and wallet-loss town are unnamed. Mostar is explicitly still ahead, so it is not presented as an accomplished stop.",
+      "coordinates": [
+        18.413055555555555,
+        43.85638888888889
+      ],
+      "coordinate_source": "https://www.wikidata.org/wiki/Q11194",
+      "location_precision": "town",
+      "other_places": [
+        "Belgrade (earlier visit)",
+        "Olympic mountain sites (visited; exact campsite unknown)",
+        "Mostar (future destination)"
+      ],
+      "reviewed_text_sha256": "32ec5f5cb52655c0cc6ad73c779b00ba0b2d3ff20f39cbdc04ff7ccc71aa8108"
+    },
+    {
+      "post": "five-years-walking-across-europe-15-countries-10000-km-5-winters-and-now-a-pause",
+      "name": "Dubrovnik · before the pause",
+      "country": "Croatia",
+      "status": "documented",
+      "method": "named_place",
+      "evidence": [
+        "arriving in Dubrovnik, Croatia",
+        "I decided to come back to France. I just arrived yesterday"
+      ],
+      "explanation": "Dubrovnik is an explicitly visited place in the final entry, beyond the end of the supplied route. The author then returned to France, but names no French town. No return route or French address is invented.",
+      "coordinates": [
+        18.108333333333,
+        42.640277777778
+      ],
+      "coordinate_source": "https://www.wikidata.org/wiki/Q1722",
+      "location_precision": "town",
+      "other_places": [
+        "Montenegro (country crossed)",
+        "France (return; town unspecified)"
+      ],
+      "on_recorded_route": false,
+      "reviewed_text_sha256": "ef2a2fbefcb779c3cc06d772458584b1e79459bc2d83e08aa39e3837721328ec"
+    }
+  ]
+}
